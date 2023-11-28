@@ -25,7 +25,7 @@ public class Auctiom
             foreach (var horse in horses)
             {
                 Console.WriteLine($"Auctioning {horse.HorseId} ({horse.HorseName})");
-                Console.WriteLine($"Starting Bid: {Horse.StartingBid:C}");
+                Console.WriteLine($"Starting Bid: {horse.StartingBid:C}");
                 Console.WriteLine();
                 currentBids.Add(horse, new Bid { Amount = horse.StartingBid, Bidder = null });
             }
@@ -37,14 +37,14 @@ public class Auctiom
         }
 
     }
-    public void PlaceBid(User bidder, Horse horse, decimal bidAmount)
+    public void PlaceBid(Users bidder, Horse horse, decimal bidAmount)
     {
         if (isAuctionRunning && horses.Contains(horse))
         {
             if (bidAmount > currentBids[horse].Amount)
             {
-                currentBids[horse] = new Bid { Amount = bidAmount, Bidder = bidder };
-                Console.WriteLine($"{bidder.UserName} placed a bid of {bidAmount:C} on {horse.HorseName}.");
+                currentBids[horse] = new Bid { Amount = bidAmount, Bidder = bidder.Name };
+                Console.WriteLine($"{bidder.Name} placed a bid of {bidAmount:C} on {horse.HorseName}.");
             }
             else
             {
@@ -66,7 +66,7 @@ public class Auctiom
             {
                 var winningBid = currentBids[horse];
                 Console.WriteLine($"{horse.HorseName} {horse.HorseId}");
-                Console.WriteLine($"Winning Bid: {winningBid.Amount:C} by {(winningBid.Bidder != null ? winningBid.Bidder.Username : " No Bidder")}");
+                Console.WriteLine($"Winning Bid: {winningBid.Amount:C} by {(winningBid.Bidder != null ? winningBid.Bidder : "No Bidder")}");
                 Console.WriteLine();
 
             }
@@ -81,11 +81,6 @@ public class Auctiom
 
 
     }
-}
-public class Bid
-{
-    public decimal Amount { get; set; }
-    public  User Bidder { get; set; }
 }
 
 
