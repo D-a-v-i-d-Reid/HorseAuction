@@ -1,89 +1,71 @@
 ﻿using System;
 using System.ComponentModel.Design;
 
-public class Auctiom
+public class Auction
 {
-    private List<Horse> horses;
-    private Dictionary<Horse, Bid> currentBids;
-    private bool isAuctionRunning;
+    private readonly AuctionDbContext _dbContext;
 
-
-    public Auctiom(List<Horse> horses)
+    public Auction(AuctionDbContext _dbContext)
     {
-        this.horses = horses;
-        currentBids = new Dictionary<Horse, Bid>();
-        isAuctionRunning = false;
+        _dbContext = dbContext;
+        _dbContext.Database.EnsureCreated();
+
     }
 
-    public void StartAuction()
+    public void DisplayHorses()
     {
-        if (!isAuctionRunning)
+        var horses = _dbContext.Horses.ToList()
+        Console.WriteLine("List of Horses:");
+        foreach (var horse in horses)
         {
-            Console.WriteLine("Auction Started!");
-            isAuctionRunning = true;
+            Console.WriteLine($"{horse.HorseId}. {horse.HorseName} (Starting Bid: {horse.StartingBid:C})");
+        }
+    }
 
-            foreach (var horse in horses)
-            {
-                Console.WriteLine($"Auctioning {horse.HorseId} ({horse.HorseName})");
-                Console.WriteLine($"Starting Bid: {horse.StartingBid:C}");
-                Console.WriteLine();
-                currentBids.Add(horse, new Bid { Amount = horse.StartingBid, Bidder = null });
-            }
-            Console.WriteLine("Bidding has begun! Place your bids.");
+    public void ViewHorseDetails(int horseId)
+    {
+        var selectedHorse = _dbContext.Horses.Find(horseId);
+        if (selectedHorse != null)
+        {
+            Console.WriteLine($"Details for {selectedHorse.HorseName} (ID: {selectedHorse.HorseId}):");
+            Console.WriteLine($"Starting Bid: {selectedHorse.StartingBid:C}");
         }
         else
         {
-            Console.WriteLine("The auction is already running.");
+            Console.WriteLine("Horse not found.");
         }
-
     }
-    public void PlaceBid(Users bidder, Horse horse, decimal bidAmount)
+
+    public void Placebid(int horseId, string bidderName, decimal bidAmount)
     {
-        if (isAuctionRunning && horses.Contains(horse))
+        var selectedHorse = _dbContext.Horses.Find(horseId);
+
+        if (selectedHorse != null)
         {
-            if (bidAmount > currentBids[horse].Amount)
+            var currentHighestBid = _dbContext.Bids
+                .Where(b => b.HorseId == horseId)
+                .OrderbyDescending(b => b.Amount)
+                .FirstOrDefault();
+
+            if (currentHighestBid == null) || bidAmount > currentHighestBid) 
+
             {
-                currentBids[horse] = new Bid { Amount = bidAmount, Bidder = bidder.Name };
-                Console.WriteLine($"{bidder.Name} placed a bid of {bidAmount:C} on {horse.HorseName}.");
+                var bid = new Bid { horseId = horseId, Amount = bidAmount, bidderName = bidderName };
+                _dbContext.Bids.Add(bid);
+                _dbContext.SaveChanges();
+                Console.WriteLine($"Bid place successfully by {bidderName} on {selectedHorse.HorseName}.");
             }
             else
             {
-                Console.WriteLine($"Bid mustbe higher than the current highest bid ({currentBids[horse].Amount:C}).");
+                Console.WriteLine($"Bid amount must be higher than the current highest bid ({currentHighestBid.Amount:C}).");
             }
         }
         else
         {
-            Console.WriteLine("Auction is not running , or the horse is not in the auction.");
+            Console.WriteLine("Horse not found.");
         }
-    }
-    public void EndAuction()
-    {
-        if (isAuctionRunning)
-        {
-            Console.WriteLine("Auction ended!");
-
-            foreach (var horse in horses)
-            {
-                var winningBid = currentBids[horse];
-                Console.WriteLine($"{horse.HorseName} {horse.HorseId}");
-                Console.WriteLine($"Winning Bid: {winningBid.Amount:C} by {(winningBid.Bidder != null ? winningBid.Bidder : "No Bidder")}");
-                Console.WriteLine();
-
-            }
-            isAuctionRunning = false;
-        }
-        else
-
-        {
-            Console.WriteLine("The auction is not currently running.");
-        }
-
-
-
     }
 }
-
-
 
 
 

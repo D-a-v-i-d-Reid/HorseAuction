@@ -8,6 +8,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{23BE0DC3-05AA-4E0A-BF35-9C76DA50CFBF}"
 	ProjectSection(SolutionItems) = preProject
 		Auction.cs = Auction.cs
+		AuctionDbContext.cs = AuctionDbContext.cs
 		Bid.cs = Bid.cs
 		Class1.cs = Class1.cs
 		Class2.cs = Class2.cs
