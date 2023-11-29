@@ -10,6 +10,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		Auction.cs = Auction.cs
 		AuctionDbContext.cs = AuctionDbContext.cs
 		Bid.cs = Bid.cs
+		Bidder.cs = Bidder.cs
 		Class1.cs = Class1.cs
 		Class2.cs = Class2.cs
 	EndProjectSection

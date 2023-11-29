@@ -31,6 +31,6 @@ public class Users
             return false;
         }
         string emailPattern = @"^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$";
-        return Regex.IsMatch(emailPattern, email);
+        return Regex.IsMatch(email, emailPattern);
     }
 }
