@@ -1,11 +1,12 @@
 ﻿using System;
-using System.ComponentModel.Design;
+using System.Linq;
+using Microsoft.EntityFrameworkCore;
 
 public class Auction
 {
     private readonly AuctionDbContext _dbContext;
 
-    public Auction(AuctionDbContext _dbContext)
+    public Auction(AuctionDbContext dbContext)
     {
         _dbContext = dbContext;
         _dbContext.Database.EnsureCreated();
@@ -14,7 +15,7 @@ public class Auction
 
     public void DisplayHorses()
     {
-        var horses = _dbContext.Horses.ToList()
+        var horses = _dbContext.Horses.ToList();
         Console.WriteLine("List of Horses:");
         foreach (var horse in horses)
         {
@@ -44,13 +45,13 @@ public class Auction
         {
             var currentHighestBid = _dbContext.Bids
                 .Where(b => b.HorseId == horseId)
-                .OrderbyDescending(b => b.Amount)
+                .OrderByDescending(b => b.Amount)
                 .FirstOrDefault();
 
-            if (currentHighestBid == null) || bidAmount > currentHighestBid) 
+            if (currentHighestBid == null || bidAmount > currentHighestBid.Amount) 
 
             {
-                var bid = new Bid { horseId = horseId, Amount = bidAmount, bidderName = bidderName };
+                var bid = new Bid { HorseId = horseId, Amount = bidAmount, BidderName = bidderName };
                 _dbContext.Bids.Add(bid);
                 _dbContext.SaveChanges();
                 Console.WriteLine($"Bid place successfully by {bidderName} on {selectedHorse.HorseName}.");
