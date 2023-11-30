@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Linq;
+using HorseAuction;
 using Microsoft.EntityFrameworkCore;
 
 public class Auction
 {
     private readonly AuctionDbContext _dbContext;
+    
 
     public Auction(AuctionDbContext dbContext)
     {
@@ -12,8 +14,7 @@ public class Auction
         _dbContext.Database.EnsureCreated();
 
     }
-
-    public void DisplayHorses()
+         public void DisplayHorses()
     {
         var horses = _dbContext.Horses.ToList();
         Console.WriteLine("List of Horses:");
@@ -28,7 +29,7 @@ public class Auction
         var selectedHorse = _dbContext.Horses.Find(horseId);
         if (selectedHorse != null)
         {
-            Console.WriteLine($"Details for {selectedHorse.HorseName} (ID: {selectedHorse.HorseId}):");
+            Console.WriteLine($"Details for {selectedHorse.HorseName} (ID: {selectedHorse.HorseId}) {selectedHorse.Description}");
             Console.WriteLine($"Starting Bid: {selectedHorse.StartingBid:C}");
         }
         else
@@ -45,6 +46,7 @@ public class Auction
         {
             var currentHighestBid = _dbContext.Bids
                 .Where(b => b.HorseId == horseId)
+                .ToList()
                 .OrderByDescending(b => b.Amount)
                 .FirstOrDefault();
 
