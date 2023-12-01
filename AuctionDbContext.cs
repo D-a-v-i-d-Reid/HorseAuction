@@ -11,15 +11,16 @@ public class AuctionDbContext : DbContext
 {
     private readonly ILogger<AuctionDbContext> _logger;
 
-    public AuctionDbContext(DbContextOptions<AuctionDbContext> options, ILogger<AuctionDbContext> logger)
-        : base(options)
+    public AuctionDbContext()
+        : this(new DbContextOptions<AuctionDbContext>(), new Logger<AuctionDbContext>(new LoggerFactory()))
     {
-        _logger = logger; 
+    }
 
-       // Log.Logger = new LoggerConfiguration();
-          //    .WriteTo.Console
-          //    .WriteTo.File("logs/AppContext.log", rollingInterval: RollingInterval.Day)
-          //    .CreateLogger();
+    public AuctionDbContext(DbContextOptions<AuctionDbContext> options, ILogger<AuctionDbContext> logger)
+       : base(options)
+    {
+        _logger = logger;             
+                    
     }
 
     public DbSet<Horse> Horses { get; set; }
