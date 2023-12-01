@@ -11,14 +11,10 @@ namespace HorseAuction
             {
                 Auction auction = new(dbContext);
                                
-                {           
-                               
-                                
-                        
-                                               
+                {                                       
+                                                     
+                                              
                     
-
-
                     bool exitProgram = false;
 
                     while (!exitProgram)
@@ -52,15 +48,15 @@ namespace HorseAuction
 
                                 case 3:
                                     Console.Write("Enter the HorseID to Place a Bid:  ");
-                                    if (int.TryParse(Console.ReadLine(), out int bidHorseId))
+                                    if (int.TryParse(Console.ReadLine(), out horseId))
                                     {
                                         Console.Write("Enter Your Username:  ");
-                                        string bidderName = Console.ReadLine();
+                                        string? bidderName = Console.ReadLine();
 
                                         Console.Write("Enter the Bid Amount ");
                                         if (decimal.TryParse(Console.ReadLine(), out decimal bidAmount))
                                         {
-                                            auction.Placebid(bidHorseId, bidderName, bidAmount);
+                                            auction.Placebid(horseId, bidderName, bidAmount);
                                         }
                                         else
                                         {

@@ -3,18 +3,18 @@ using System.Linq;
 using HorseAuction;
 using Microsoft.EntityFrameworkCore;
 
-public class Auction
+public class Auction 
 {
     private readonly AuctionDbContext _dbContext;
-    
+
 
     public Auction(AuctionDbContext dbContext)
     {
         _dbContext = dbContext;
-        _dbContext.Database.EnsureCreated();
+        //_dbContext.Database.EnsureCreated();
 
     }
-         public void DisplayHorses()
+    public void DisplayHorses()
     {
         var horses = _dbContext.Horses.ToList();
         Console.WriteLine("List of Horses:");
@@ -40,32 +40,46 @@ public class Auction
 
     public void Placebid(int horseId, string bidderName, decimal bidAmount)
     {
-        var selectedHorse = _dbContext.Horses.Find(horseId);
-
-        if (selectedHorse != null)
+        using (var transaction = _dbContext.Database.BeginTransaction())
         {
-            var currentHighestBid = _dbContext.Bids
-                .Where(b => b.HorseId == horseId)
-                .ToList()
-                .OrderByDescending(b => b.Amount)
-                .FirstOrDefault();
-
-            if (currentHighestBid == null || bidAmount > currentHighestBid.Amount) 
-
+            try
             {
+                
+                var selectedHorse = _dbContext.Horses.Find(horseId);
+                if (selectedHorse == null)
+                {
+                    Console.WriteLine("Horse not found.");
+                    return;
+                }
+                //Check Bid Amount Valid
+                if (bidAmount <= 0)
+                {
+                    Console.WriteLine("Invalid bid amount. Please enter a valid number.");
+                    return;
+                }
+                // Create Bid
                 var bid = new Bid { HorseId = horseId, Amount = bidAmount, BidderName = bidderName };
                 _dbContext.Bids.Add(bid);
+                                
+                //save changes and commit
                 _dbContext.SaveChanges();
-                Console.WriteLine($"Bid place successfully by {bidderName} on {selectedHorse.HorseName}.");
+                transaction.Commit();
+
+                Console.WriteLine($"Bid placed successfully on {selectedHorse.HorseName} for {bidAmount:C} by {bidderName}.");
+
             }
-            else
+            catch (DbUpdateException ex) 
             {
-                Console.WriteLine($"Bid amount must be higher than the current highest bid ({currentHighestBid.Amount:C}).");
+                Console.WriteLine($"Error placing bid: {ex.Message}");
+                transaction.Rollback();
             }
-        }
-        else
-        {
-            Console.WriteLine("Horse not found.");
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error placing bid: {ex.Message}");
+                transaction.Rollback();
+            }
+
+
         }
     }
 }

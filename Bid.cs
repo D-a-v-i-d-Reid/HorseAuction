@@ -9,7 +9,7 @@ public class Bid
     public decimal Amount { get; set; }
     
     public string? BidderName { get; set; }
-    public Horse Horse { get; set; }
-    public Bidder Bidder { get; set; }
+    public Horse? Horse { get; set; }
+    public Bidder? Bidder { get; set; }
 
 }

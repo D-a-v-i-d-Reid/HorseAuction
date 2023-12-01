@@ -14,12 +14,13 @@ public class AuctionDbContext : DbContext
 
         {
             optionsBuilder.UseSqlite("Data Source=AuctionData.db");
+          //  optionsBuilder.EnableSensitiveDataLogging();
         }
         catch (Exception ex)
         {
             Console.WriteLine($"Error configuring database: {ex.Message}");
         }
-
+        
     }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -27,9 +28,10 @@ public class AuctionDbContext : DbContext
         try
         {
             modelBuilder.Entity<Bid>()
-                .HasOne(b => b.Horse)
-                .WithMany(h => h.Bids)
-                .HasForeignKey(b => b.HorseId);
+            .HasOne(b => b.Horse)
+            .WithMany()
+            .HasForeignKey(b => b.HorseId);
+
 
             modelBuilder.Entity<Bid>()
                 .HasOne(b => b.Bidder)
