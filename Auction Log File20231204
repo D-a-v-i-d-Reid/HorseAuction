@@ -1,0 +1,111 @@
+2023-12-04 00:21:49.974 -05:00 [DBG] An additional 'IServiceProvider' was created for internal use by Entity Framework. An existing service provider was not used due to the following configuration changes: configuration changed for 'Core:EnableSensitiveDataLogging'.
+2023-12-04 00:21:51.308 -05:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2023-12-04 00:21:51.648 -05:00 [DBG] Entity Framework Core 7.0.14 initialized 'AuctionDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite:7.0.14' with options: SensitiveDataLoggingEnabled 
+2023-12-04 00:21:51.683 -05:00 [DBG] Compiling query expression: 
+'DbSet<Horse>()'
+2023-12-04 00:21:51.932 -05:00 [DBG] Generated query execution expression: 
+'queryContext => new SingleQueryingEnumerable<Horse>(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.QueryExpression(
+        Projection Mapping:
+            EmptyProjectionMember -> Dictionary<IProperty, int> { [Property: Horse.HorseId (int) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: Horse.Age (int) Required, 1], [Property: Horse.Color (string) Required, 2], [Property: Horse.Description (string) Required, 3], [Property: Horse.HorseName (string) Required, 4], [Property: Horse.PerformanceType (string) Required, 5], [Property: Horse.StartingBid (decimal) Required, 6] }
+        SELECT h.HorseId, h.Age, h.Color, h.Description, h.HorseName, h.PerformanceType, h.StartingBid
+        FROM Horses AS h), 
+    null, 
+    Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, Horse>, 
+    HorseAuction.AuctionDbContext, 
+    False, 
+    False, 
+    True
+)'
+2023-12-04 00:21:51.967 -05:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2023-12-04 00:21:51.969 -05:00 [DBG] Creating DbConnection.
+2023-12-04 00:21:52.041 -05:00 [DBG] Created DbConnection. (63ms).
+2023-12-04 00:21:52.055 -05:00 [DBG] Created DbCommand for 'ExecuteReader' (87ms).
+2023-12-04 00:21:52.056 -05:00 [DBG] Initialized DbCommand for 'ExecuteReader' (96ms).
+2023-12-04 00:21:52.067 -05:00 [DBG] Opening connection to database 'main' on server 'AuctionData.db'.
+2023-12-04 00:21:52.145 -05:00 [DBG] Opened connection to database 'main' on server 'C:\Users\David\Documents\GitHubRepository\Horse Auction\bin\Debug\net6.0\AuctionData.db'.
+2023-12-04 00:21:52.155 -05:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "h"."HorseId", "h"."Age", "h"."Color", "h"."Description", "h"."HorseName", "h"."PerformanceType", "h"."StartingBid"
+FROM "Horses" AS "h"
+2023-12-04 00:21:52.205 -05:00 [INF] Executed DbCommand (47ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "h"."HorseId", "h"."Age", "h"."Color", "h"."Description", "h"."HorseName", "h"."PerformanceType", "h"."StartingBid"
+FROM "Horses" AS "h"
+2023-12-04 00:21:52.243 -05:00 [DBG] Context 'AuctionDbContext' started tracking 'Horse' entity with key '{HorseId: 1}'.
+2023-12-04 00:21:52.279 -05:00 [DBG] Context 'AuctionDbContext' started tracking 'Horse' entity with key '{HorseId: 2}'.
+2023-12-04 00:21:52.279 -05:00 [DBG] Context 'AuctionDbContext' started tracking 'Horse' entity with key '{HorseId: 3}'.
+2023-12-04 00:21:52.281 -05:00 [DBG] Closing data reader to 'main' on server 'C:\Users\David\Documents\GitHubRepository\Horse Auction\bin\Debug\net6.0\AuctionData.db'.
+2023-12-04 00:21:52.289 -05:00 [DBG] A data reader for 'main' on server 'C:\Users\David\Documents\GitHubRepository\Horse Auction\bin\Debug\net6.0\AuctionData.db' is being disposed after spending 76ms reading results.
+2023-12-04 00:21:52.292 -05:00 [DBG] Closing connection to database 'main' on server 'C:\Users\David\Documents\GitHubRepository\Horse Auction\bin\Debug\net6.0\AuctionData.db'.
+2023-12-04 00:21:52.298 -05:00 [DBG] Closed connection to database 'main' on server 'AuctionData.db' (5ms).
+2023-12-04 00:22:15.948 -05:00 [DBG] Opening connection to database 'main' on server 'AuctionData.db'.
+2023-12-04 00:22:15.948 -05:00 [DBG] Opened connection to database 'main' on server 'C:\Users\David\Documents\GitHubRepository\Horse Auction\bin\Debug\net6.0\AuctionData.db'.
+2023-12-04 00:22:15.949 -05:00 [DBG] Beginning transaction with isolation level 'Unspecified'.
+2023-12-04 00:22:15.952 -05:00 [DBG] Began transaction with isolation level 'Serializable'.
+2023-12-04 00:22:15.986 -05:00 [DBG] 'AuctionDbContext' generated temporary value '-2147482647' for the property 'BidId.Bid'.
+2023-12-04 00:22:16.014 -05:00 [DBG] The navigation 'Bid.Horse' for entity with key '{BidId: -2147482647}' was detected as changed.
+2023-12-04 00:22:16.026 -05:00 [DBG] Context 'AuctionDbContext' started tracking 'Bid' entity with key '{BidId: -2147482647}'.
+2023-12-04 00:22:16.029 -05:00 [DBG] SaveChanges starting for 'AuctionDbContext'.
+2023-12-04 00:22:16.037 -05:00 [DBG] DetectChanges starting for 'AuctionDbContext'.
+2023-12-04 00:22:16.053 -05:00 [DBG] DetectChanges completed for 'AuctionDbContext'.
+2023-12-04 00:22:16.161 -05:00 [DBG] Creating transaction savepoint.
+2023-12-04 00:22:16.162 -05:00 [DBG] Created transaction savepoint.
+2023-12-04 00:22:16.163 -05:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2023-12-04 00:22:16.163 -05:00 [DBG] Created DbCommand for 'ExecuteReader' (0ms).
+2023-12-04 00:22:16.165 -05:00 [DBG] Initialized DbCommand for 'ExecuteReader' (1ms).
+2023-12-04 00:22:16.169 -05:00 [DBG] Executing DbCommand [Parameters=[@p0='4000', @p1='0', @p2='Fred' (Size = 4), @p3='3'], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Bids" ("Amount", "BidderId", "BidderName", "HorseId")
+VALUES (@p0, @p1, @p2, @p3)
+RETURNING "BidId";
+2023-12-04 00:22:16.183 -05:00 [ERR] Failed executing DbCommand (17ms) [Parameters=[@p0='4000', @p1='0', @p2='Fred' (Size = 4), @p3='3'], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Bids" ("Amount", "BidderId", "BidderName", "HorseId")
+VALUES (@p0, @p1, @p2, @p3)
+RETURNING "BidId";
+2023-12-04 00:22:16.186 -05:00 [DBG] Rolling back to transaction savepoint.
+2023-12-04 00:22:16.187 -05:00 [DBG] Rolled back to transaction savepoint.
+2023-12-04 00:22:16.188 -05:00 [DBG] Releasing transaction savepoint.
+2023-12-04 00:22:16.189 -05:00 [DBG] Released transaction savepoint.
+2023-12-04 00:22:16.367 -05:00 [ERR] An exception occurred in the database while saving changes for context type 'HorseAuction.AuctionDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.Sqlite.SqliteException (0x80004005): SQLite Error 19: 'FOREIGN KEY constraint failed'.
+   at Microsoft.Data.Sqlite.SqliteException.ThrowExceptionForRC(Int32 rc, sqlite3 db)
+   at Microsoft.Data.Sqlite.SqliteDataReader.NextResult()
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(IEnumerable`1 commandBatches, IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChanges(IList`1 entries)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(IList`1 entriesToSave)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(StateManager stateManager, Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.<>c.<SaveChanges>b__107_0(DbContext _, ValueTuple`2 t)
+   at Microsoft.EntityFrameworkCore.Storage.NonRetryingExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges(Boolean acceptAllChangesOnSuccess)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.Sqlite.SqliteException (0x80004005): SQLite Error 19: 'FOREIGN KEY constraint failed'.
+   at Microsoft.Data.Sqlite.SqliteException.ThrowExceptionForRC(Int32 rc, sqlite3 db)
+   at Microsoft.Data.Sqlite.SqliteDataReader.NextResult()
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(IEnumerable`1 commandBatches, IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChanges(IList`1 entries)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(IList`1 entriesToSave)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(StateManager stateManager, Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.<>c.<SaveChanges>b__107_0(DbContext _, ValueTuple`2 t)
+   at Microsoft.EntityFrameworkCore.Storage.NonRetryingExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges(Boolean acceptAllChangesOnSuccess)
+2023-12-04 00:22:16.369 -05:00 [DBG] Rolling back transaction.
+2023-12-04 00:22:16.370 -05:00 [DBG] Rolled back transaction.
+2023-12-04 00:22:16.371 -05:00 [DBG] Closing connection to database 'main' on server 'C:\Users\David\Documents\GitHubRepository\Horse Auction\bin\Debug\net6.0\AuctionData.db'.
+2023-12-04 00:22:16.371 -05:00 [DBG] Closed connection to database 'main' on server 'AuctionData.db' (0ms).
+2023-12-04 00:22:16.372 -05:00 [DBG] Disposing transaction.
