@@ -1,6 +1,6 @@
 ﻿namespace HorseAuction.Test
 {
-    internal class AuctionDbContext
+    public class AuctionDbContext
     {
     }
 }

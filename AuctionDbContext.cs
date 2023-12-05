@@ -44,6 +44,7 @@ public class AuctionDbContext : DbContext
         }
 
     }
+    
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

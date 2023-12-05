@@ -1,4 +1,4 @@
-using Moq;
+using System.Collections.Generic;
 using Xunit;
 using HorseAuction;
 using System;
@@ -6,63 +6,77 @@ using System;
 
 namespace HorseAuction.Test
 {
+     
+    
     public class AuctionTests
     {
-                            
-            [Fact]
-            public void DisplayHorses_ShouldNotThrowException()
-            {
-                // Arrange
-                var dbContext = new Mock<AuctionDbContext>();
-                var auction = new Auction(dbContext.Object);
 
+        [Fact]
+        public void DisplayHorses_ShouldNotThrowException()
+        {
+            // Arrange
+            var fakeDbContext = new FakeAuctionDbContext();
+            var auction = new Auction(fakeDbContext);
+
+            // Act
+            Action act = () => auction.DisplayHorses();
+
+            // Assert
+            AssertNoExceptionThrown(act);
+        }
+
+        [Fact]
+        public void ViewHorseDetails_WithValidId_ShouldNotThrowException()
+        {
+            // Arrange
+            var fakeDbContext = new FakeAuctionDbContext();
+            var auction = new Auction(fakeDbContext);
+
+            // Act
+            Action act = () => auction.ViewHorseDetails(1);
+
+            // Assert
+            AssertNoExceptionThrown(act);
+        }
+
+        [Fact]
+        public void PlaceBid_WithValidInput_ShouldNotThrowException()
+        {
+            // Arrange
+            var fakeDbContext = new FakeAuctionDbContext();
+            var auction = new Auction(fakeDbContext);
+
+            // Act
+            auction.PlaceBid(1, "TestBidder", 100);
+
+            // Assert
+            Assert.Equal(1, fakeDbContext.Bids.Count);
+            Assert.Equal(1, fakeDbContext.Bids[0].HorseId);
+            Assert.Equal("TestBidder", fakeDbContext.Bids[0].BidderName);
+            Assert.Equal(100, fakeDbContext.Bids[0].Amount);
+        }
+
+        private static void AssertNoExceptionThrown(Action action)
+        {
+            try
+            {
                 // Act
-                 Action act= () => auction.DisplayHorses();
-
-                // Assert
-                AssertNoExceptionThrown(act);
+                action();
             }
-
-            [Fact]
-            public void ViewHorseDetails_WithValidId_ShouldNotThrowException()
+            catch (Exception ex)
             {
-                // Arrange
-                var dbContext = new Mock<AuctionDbContext>();
-                var auction = new Auction(dbContext.Object);
-
-                // Act
-                Action act = () => auction.ViewHorseDetails(1);
-
                 // Assert
-                AssertNoExceptionThrown(act);
-            }
-
-            [Fact]
-            public void PlaceBid_WithValidInput_ShouldNotThrowException()
-            {
-                // Arrange
-                var dbContext = new Mock<AuctionDbContext>();
-                var auction = new Auction(dbContext.Object);
-
-                // Act
-                Action act = () => auction.PlaceBid(1, "TestBidder", 100);
-
-                // Assert
-                AssertNoExceptionThrown(act);
-            }
-
-            private static void AssertNoExceptionThrown(Action action)
-            {
-                try
-                {
-                    // Act
-                    action();
-                }
-                catch (Exception ex)
-                {
-                    // Assert
-                    Assert.True(false, $"Method threw an exception: {ex}");
-                }
+                Assert.True(false, $"Method threw an exception: {ex}");
             }
         }
     }
+    public class FakeAuctionDbContext : AuctionDbContext
+    {
+        public List<Bid> Bids { get; } = new List<Bid>();
+
+        public void SaveBid(Bid bid)
+        {
+            Bids.Add(bid);
+        }
+    }
+}
