@@ -33,8 +33,11 @@ namespace HorseAuction
 
             bool exitProgram = false;
 
+            Console.WriteLine("Lazy R Quarter Horse Auction");
+
             while (!exitProgram)
             {
+                Console.WriteLine();
                 Console.WriteLine("1. View Horses");
                 Console.WriteLine("2. View Horse Details");
                 Console.WriteLine("3. Place Bid");
