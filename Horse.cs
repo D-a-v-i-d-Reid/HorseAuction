@@ -10,5 +10,5 @@ public class Horse
     public string PerformanceType { get; set; } = string.Empty;
     public decimal StartingBid { get; set; }
 
-    public List<Bid>? Bids { get; set; } 
+    public List<Bid> Bids { get; set; } 
 }

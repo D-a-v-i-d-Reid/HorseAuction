@@ -11,7 +11,7 @@ public class Auction
     public Auction(AuctionDbContext dbContext)
     {
         _dbContext = dbContext;
-        //_dbContext.Database.EnsureCreated();
+        _dbContext.Database.EnsureCreated();
 
     }
     public void DisplayHorses()

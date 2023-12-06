@@ -11,9 +11,14 @@ namespace HorseAuction
     {
         static void Main(string[] args)
         {
+            var logFilePath = Path.Combine(AppContext.BaseDirectory, "AuctionLogFile.txt");
+
+            Console.WriteLine($"Log Directory: {Path.GetDirectoryName(logFilePath)}");
+            Console.WriteLine();
+
             Log.Logger = new LoggerConfiguration()
                 .MinimumLevel.Debug()
-                .WriteTo.File(@"C:\Users\David\Documents\GitHubRepository\Horse Auction\Auction Log File", rollingInterval: RollingInterval.Day)
+                .WriteTo.File(logFilePath, rollingInterval: RollingInterval.Day)
                 .CreateLogger();
                
             using var loggerFactory = LoggerFactory.Create(builder =>
