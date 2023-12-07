@@ -11,12 +11,12 @@ public class Auction
     public Auction(AuctionDbContext dbContext)
     {
         _dbContext = dbContext;
-        _dbContext.Database.EnsureCreated();
+        _dbContext.Database.Migrate();
 
     }
     public void DisplayHorses()
     {
-        var horses = _dbContext.Horses.ToList();
+        var horses = _dbContext.Horses.AsNoTracking().ToList();
         Console.WriteLine("List of Horses:");
         foreach (var horse in horses)
         {
@@ -56,15 +56,15 @@ public class Auction
                 {
                     Console.WriteLine("Invalid bid amount. Please enter a valid number.");
                     return;
-                }
-                // Create Bid
-                var bid = new Bid { HorseId = horseId, Amount = bidAmount, BidderName = bidderName };
-                _dbContext.Bids.Add(bid);
-                                
-                //save changes and commit
-                _dbContext.SaveChanges();
-                transaction.Commit();
 
+                    // Create Bid
+                    var bid = new Bid { HorseId = horseId, Amount = bidAmount, BidderName = bidderName };
+                    _dbContext.Bids.Add(bid);
+
+                    //save changes and commit
+                    _dbContext.SaveChanges();
+                    transaction.Commit();
+                }
                 Console.WriteLine($"Bid placed successfully on {selectedHorse.HorseName} for {bidAmount:C} by {bidderName}.");
 
             }

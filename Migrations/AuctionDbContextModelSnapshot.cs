@@ -120,13 +120,23 @@ namespace HorseAuction.Migrations
                             HorseName = "Brownie",
                             PerformanceType = "Western Pleasure",
                             StartingBid = 10000m
+                        },
+                        new
+                        {
+                            HorseId = 4,
+                            Age = 10,
+                            Color = "Gray",
+                            Description = "Trained Professionally Ready to Go",
+                            HorseName = "Cinnamon",
+                            PerformanceType = "Western Pleasure",
+                            StartingBid = 15000m
                         });
                 });
 
             modelBuilder.Entity("Bid", b =>
                 {
                     b.HasOne("Bidder", "Bidder")
-                        .WithMany()
+                        .WithMany("Bids")
                         .HasForeignKey("BidderId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -140,6 +150,11 @@ namespace HorseAuction.Migrations
                     b.Navigation("Bidder");
 
                     b.Navigation("Horse");
+                });
+
+            modelBuilder.Entity("Bidder", b =>
+                {
+                    b.Navigation("Bids");
                 });
 
             modelBuilder.Entity("Horse", b =>

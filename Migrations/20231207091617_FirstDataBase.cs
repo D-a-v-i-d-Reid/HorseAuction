@@ -2,10 +2,12 @@
 
 #nullable disable
 
+#pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
+
 namespace HorseAuction.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialCreate : Migration
+    public partial class FirstDataBase : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -47,10 +49,10 @@ namespace HorseAuction.Migrations
                 {
                     BidId = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    HorseId = table.Column<int>(type: "INTEGER", nullable: false),
-                    BidderId = table.Column<int>(type: "INTEGER", nullable: false),
                     Amount = table.Column<decimal>(type: "TEXT", nullable: false),
-                    BidderName = table.Column<string>(type: "TEXT", nullable: true)
+                    BidderName = table.Column<string>(type: "TEXT", nullable: true),
+                    HorseId = table.Column<int>(type: "INTEGER", nullable: false),
+                    BidderId = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -67,6 +69,17 @@ namespace HorseAuction.Migrations
                         principalTable: "Horses",
                         principalColumn: "HorseId",
                         onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.InsertData(
+                table: "Horses",
+                columns: new[] { "HorseId", "Age", "Color", "Description", "HorseName", "PerformanceType", "StartingBid" },
+                values: new object[,]
+                {
+                    { 1, 3, "Red Dun", "Easy Keeper. Fun to be Around", "Genetic", "Western Pleasure", 3500m },
+                    { 2, 4, "Bay with a snip", "Barn sour and will kick you", "Rowdy", "Reining", 5000m },
+                    { 3, 2, "Brown", "Very green, just started under saddle", "Brownie", "Western Pleasure", 10000m },
+                    { 4, 10, "Gray", "Trained Professionally Ready to Go", "Cinnamon", "Western Pleasure", 15000m }
                 });
 
             migrationBuilder.CreateIndex(
