@@ -76,13 +76,14 @@ namespace HorseAuction
                             Console.Write("Enter the HorseID to Place a Bid:  ");
                             if (int.TryParse(Console.ReadLine(), out horseId))
                             {
-                                Console.Write("Enter Your Username:  ");
-                                string? bidderName = Console.ReadLine();
+                                string bidderName = Auction.GetBidderUsername();
+                                int bidderId = auction.RegisterBidder(bidderName);
+                                                                                               
 
                                 Console.Write("Enter the Bid Amount ");
                                 if (decimal.TryParse(Console.ReadLine(), out decimal bidAmount))
                                 {
-                                    auction.Placebid(horseId, bidderName, bidAmount);
+                                    auction.Placebid(horseId, bidAmount, bidderId, bidderName);
                                 }
                                 else
                                 {

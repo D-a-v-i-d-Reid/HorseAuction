@@ -7,9 +7,7 @@ public class Bid
     public int BidId { get; set; }
 
     public decimal Amount { get; set; }
-
-    public string? BidderName { get; set; }
-
+        
     [ForeignKey("Horse")]
     public int HorseId { get; set; }
     public Horse Horse { get; set; }

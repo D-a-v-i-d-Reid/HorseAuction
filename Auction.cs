@@ -6,12 +6,36 @@ using Microsoft.EntityFrameworkCore;
 public class Auction 
 {
     private readonly AuctionDbContext _dbContext;
-
+    private static readonly Random random = new Random();
 
     public Auction(AuctionDbContext dbContext)
     {
         _dbContext = dbContext;
         _dbContext.Database.Migrate();
+
+    }
+    public int RegisterBidder(string username)
+    {
+        Guid bidderGuid = Guid.NewGuid();
+        int bidderId = BitConverter.ToInt32(bidderGuid.ToByteArray(), 0);
+
+        while (_dbContext.Bidders.Any(b => b.BidderId == bidderId))
+        {
+            bidderGuid = Guid.NewGuid();
+            bidderId = BitConverter.ToInt32(bidderGuid.ToByteArray(), 0);
+        }
+
+        var bidder = new Bidder { BidderId = bidderId, BidderName = username };
+        _dbContext.Bidders.Add(bidder);
+        _dbContext.SaveChanges();
+
+        return bidderId;
+
+            }
+    public static string GetBidderUsername()
+    {
+        Console.Write("Enter Your Username: ");
+        return Console.ReadLine();
 
     }
     public void DisplayHorses()
@@ -38,7 +62,7 @@ public class Auction
         }
     }
 
-    public void Placebid(int horseId, string bidderName, decimal bidAmount)
+    public void Placebid(int horseId, decimal bidAmount, int bidderId, string bidderName)
     {
         using (var transaction = _dbContext.Database.BeginTransaction())
         {
@@ -56,16 +80,31 @@ public class Auction
                 {
                     Console.WriteLine("Invalid bid amount. Please enter a valid number.");
                     return;
+                }
+                //Create a new bidder or get an existing one by name 
+                var bidder = _dbContext.Bidders.FirstOrDefault(b => b.BidderName == bidderName);
+                if (bidder == null)
+                {
+                    Console.WriteLine("Bidder not found.");
+                    return;
+                }
 
+                {
                     // Create Bid
-                    var bid = new Bid { HorseId = horseId, Amount = bidAmount, BidderName = bidderName };
-                    _dbContext.Bids.Add(bid);
+                    var bid = new Bid
+                    {
+                        HorseId = horseId,
+                        Amount = bidAmount,
+                        BidderId = bidder.BidderId
 
-                    //save changes and commit
+                    };
+
+                    _dbContext.Bids.Add(bid);
                     _dbContext.SaveChanges();
                     transaction.Commit();
+
+                    Console.WriteLine($"Bid placed successfully on {selectedHorse.HorseName} for {bidAmount:C} by {bidderName}.");
                 }
-                Console.WriteLine($"Bid placed successfully on {selectedHorse.HorseName} for {bidAmount:C} by {bidderName}.");
 
             }
             catch (DbUpdateException ex) 

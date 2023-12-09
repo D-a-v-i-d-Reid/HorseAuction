@@ -52,7 +52,7 @@ namespace HorseAuction.Test
             // Assert
             Assert.Equal(1, fakeDbContext.Bids.Count);
             Assert.Equal(1, fakeDbContext.Bids[0].HorseId);
-            Assert.Equal("TestBidder", fakeDbContext.Bids[0].BidderName);
+            Assert.Equal("TestBidder", fakeDbContext.Bids[0].Bidder.BidderName);
             Assert.Equal(100, fakeDbContext.Bids[0].Amount);
         }
 
