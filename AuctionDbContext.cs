@@ -28,6 +28,7 @@ public class AuctionDbContext : DbContext
     public DbSet<Horse> Horses { get; set; }
     public DbSet<Bid> Bids { get; set; }
     public DbSet<Bidder> Bidders { get; set; }
+    public DbSet<User>Users { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
