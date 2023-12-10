@@ -22,9 +22,8 @@ namespace HorseAuction
         }
 
         public void RegisterUser()
-        {
+        {                            
             var userInput = GetUserInput();
-
             var validationResults = new List<ValidationResult>();
             if (!Validator.TryValidateObject(userInput, new ValidationContext(userInput), validationResults, validateAllProperties: true))
             {
@@ -36,7 +35,7 @@ namespace HorseAuction
 
             }
 
-            User user = null;
+            User user = MapToDomainModel(userInput);
 
             // Check if the username is already taken
             if (UserNameIsTaken(user.UserName))

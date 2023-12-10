@@ -25,20 +25,34 @@ namespace HorseAuction
             {
                 builder.AddSerilog();
             });
-            var logger = loggerFactory.CreateLogger<AuctionDbContext>();
+
+            // Create a logger specifically for UserRegistrationService
+            var userRegistrationLogger = loggerFactory.CreateLogger<UserRegistrationService>();
+
+            // Create a logger specifically for AuctionDbContext
+            var auctionDbContextLogger = loggerFactory.CreateLogger<AuctionDbContext>();
+
+
+            //var logger = loggerFactory.CreateLogger<AuctionDbContext>();
 
             var optionsBuilder = new DbContextOptionsBuilder<AuctionDbContext>();
             optionsBuilder.UseSqlite("Data Source=AuctionData.db");
             var options = optionsBuilder.Options;
 
-            var dbContext = new AuctionDbContext(options, logger);
-                                             
-                     
-            Auction auction = new(dbContext);
+            var dbContext = new AuctionDbContext(options, auctionDbContextLogger);
+            var auction = new Auction(dbContext);
 
-            bool exitProgram = false;
+            //Create an instance of the UserRegistration Service
+            var userRegistrationService = new UserRegistrationService(dbContext, userRegistrationLogger);
 
             Console.WriteLine("Lazy R Quarter Horse Auction");
+
+            // User Registration
+            userRegistrationService.RegisterUser();
+
+            //Once registered...Proceed to auction menu
+            bool exitProgram = false;
+
 
             while (!exitProgram)
             {
