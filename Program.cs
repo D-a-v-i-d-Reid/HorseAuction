@@ -4,6 +4,7 @@ using Serilog;
 using Serilog.Events;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
+using System.IO;
 
 namespace HorseAuction
 {
@@ -49,6 +50,13 @@ namespace HorseAuction
 
             // User Registration
             userRegistrationService.RegisterUser();
+
+            //Create an instance of AuthenticationService passsing AuctionDbContext
+            var authenticationService = new AuthenticationService(dbContext);
+
+            // Add Horse Registration Service
+            var horseRegistraitonLogger= loggerFactory.CreateLogger<HorseRegistrationService>();
+            var horseRegistrationService = new HorseRegistrationService(dbContext, horseRegistraitonLogger, new AuthenticationService(dbContext));
 
             //Once registered...Proceed to auction menu
             bool exitProgram = false;
@@ -125,20 +133,8 @@ namespace HorseAuction
                     Console.WriteLine("Invalid Input. Please enter a number.");
                 }
                 Console.WriteLine();
-
-
-
-
             }
-
-
         }
-
-
-
-
-
-
     }
 }
 

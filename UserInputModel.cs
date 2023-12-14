@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 
 public class UserInputModel
 {
-    public int UserID { get; set; } = 0;
+    public Guid UserID { get; set; } 
 
     [Required(ErrorMessage = "UserName is required")]
     [StringLength(25, MinimumLength = 3, ErrorMessage = "UserName must be between 3 and 25 characters")]
