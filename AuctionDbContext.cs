@@ -54,10 +54,10 @@ public class AuctionDbContext : DbContext
     {
         try
         {
-            modelBuilder.Entity<Bid>()
-            .HasOne(b => b.Horse)
-            .WithMany(h => h.Bids)
-            .HasForeignKey(b => b.HorseId);
+         //   modelBuilder.Entity<Bid>()
+          //  .HasOne(b => b.Horse)
+          //  .WithMany(h => h.Bids)
+         //   .HasForeignKey(b => b.HorseId);
 
 
             modelBuilder.Entity<Bid>()
@@ -65,12 +65,12 @@ public class AuctionDbContext : DbContext
                 .WithMany(bidder => bidder.Bids)
                 .HasForeignKey(b => b.BidderId);
 
-            modelBuilder.Entity<Horse>().HasData(
-               new Horse { HorseId = 1, HorseName = "Genetic", Age = 3, Color = "Red Dun", Description = "Easy Keeper. Fun to be Around", PerformanceType = "Western Pleasure", StartingBid = 3500m },
-               new Horse { HorseId = 2, HorseName = "Rowdy", Age = 4, Color = "Bay with a snip", Description = "Barn sour and will kick you", PerformanceType = "Reining", StartingBid = 5000m },
-               new Horse { HorseId = 3, HorseName = "Brownie", Age = 2, Color = "Brown", Description = "Very green, just started under saddle", PerformanceType = "Western Pleasure", StartingBid = 10000m },
-               new Horse { HorseId = 4, HorseName = "Cinnamon", Age = 10, Color = "Gray", Description = "Trained Professionally Ready to Go", PerformanceType = "Western Pleasure", StartingBid = 15000m }
-               );
+           // modelBuilder.Entity<Horse>().HasData(
+            //   new Horse { HorseId = 1, HorseName = "Genetic", Age = 3, Color = "Red Dun", Description = "Easy Keeper. Fun to be Around", PerformanceType = "Western Pleasure", StartingBid = 3500m },
+             //  new Horse { HorseId = 2, HorseName = "Rowdy", Age = 4, Color = "Bay with a snip", Description = "Barn sour and will kick you", PerformanceType = "Reining", StartingBid = 5000m },
+            //   new Horse { HorseId = 3, HorseName = "Brownie", Age = 2, Color = "Brown", Description = "Very green, just started under saddle", PerformanceType = "Western Pleasure", StartingBid = 10000m },
+           //    new Horse { HorseId = 4, HorseName = "Cinnamon", Age = 10, Color = "Gray", Description = "Trained Professionally Ready to Go", PerformanceType = "Western Pleasure", StartingBid = 15000m }
+          //     );
 
 
         }

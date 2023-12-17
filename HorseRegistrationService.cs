@@ -118,7 +118,7 @@ namespace HorseAuction
         }
         private bool HorseNameIsPersisted(string horseName)
         {
-            return dbContext.Horses.Any(h.RegisteredName.ToLower() == horseName.ToLower());
+            return dbContext.Horses.Any(h=>h.RegisteredName.ToLower() == horseName.ToLower());
         }
         private HorseInputModel GetHorseInput(string registeredName)
         {
