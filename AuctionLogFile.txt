@@ -1,0 +1,963 @@
+2023-12-22 01:43:12.878 -05:00 [DBG] An additional 'IServiceProvider' was created for internal use by Entity Framework. An existing service provider was not used due to the following configuration changes: configuration changed for 'Core:EnableSensitiveDataLogging'.
+2023-12-22 01:43:13.808 -05:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2023-12-22 01:43:14.107 -05:00 [DBG] Entity Framework Core 7.0.14 initialized 'AuctionDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite:7.0.14' with options: SensitiveDataLoggingEnabled 
+2023-12-22 01:43:14.131 -05:00 [DBG] Creating DbConnection.
+2023-12-22 01:43:14.147 -05:00 [DBG] Created DbConnection. (7ms).
+2023-12-22 01:43:14.159 -05:00 [DBG] Migrating using database 'main' on server ''.
+2023-12-22 01:43:14.191 -05:00 [DBG] Creating DbConnection.
+2023-12-22 01:43:14.192 -05:00 [DBG] Created DbConnection. (1ms).
+2023-12-22 01:43:14.196 -05:00 [DBG] Opening connection to database 'main' on server ''.
+2023-12-22 01:43:14.209 -05:00 [DBG] Opened connection to database 'main' on server ''.
+2023-12-22 01:43:14.214 -05:00 [DBG] Disposing connection to database 'main' on server ''.
+2023-12-22 01:43:14.222 -05:00 [DBG] Disposed connection to database 'main' on server '' (0ms).
+2023-12-22 01:43:14.232 -05:00 [DBG] Creating DbCommand for 'ExecuteScalar'.
+2023-12-22 01:43:14.243 -05:00 [DBG] Created DbCommand for 'ExecuteScalar' (4ms).
+2023-12-22 01:43:14.244 -05:00 [DBG] Initialized DbCommand for 'ExecuteScalar' (11ms).
+2023-12-22 01:43:14.244 -05:00 [DBG] Opening connection to database 'main' on server ''.
+2023-12-22 01:43:14.244 -05:00 [DBG] Opened connection to database 'main' on server ''.
+2023-12-22 01:43:14.254 -05:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsHistory' AND "type" = 'table';
+2023-12-22 01:43:14.281 -05:00 [INF] Executed DbCommand (25ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsHistory' AND "type" = 'table';
+2023-12-22 01:43:14.286 -05:00 [DBG] Closing connection to database 'main' on server ''.
+2023-12-22 01:43:14.287 -05:00 [DBG] Closed connection to database 'main' on server '' (0ms).
+2023-12-22 01:43:14.288 -05:00 [DBG] Creating DbConnection.
+2023-12-22 01:43:14.288 -05:00 [DBG] Created DbConnection. (0ms).
+2023-12-22 01:43:14.288 -05:00 [DBG] Opening connection to database 'main' on server ''.
+2023-12-22 01:43:14.288 -05:00 [DBG] Opened connection to database 'main' on server ''.
+2023-12-22 01:43:14.288 -05:00 [DBG] Disposing connection to database 'main' on server ''.
+2023-12-22 01:43:14.288 -05:00 [DBG] Disposed connection to database 'main' on server '' (0ms).
+2023-12-22 01:43:14.433 -05:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2023-12-22 01:43:14.434 -05:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (0ms).
+2023-12-22 01:43:14.434 -05:00 [DBG] Initialized DbCommand for 'ExecuteNonQuery' (0ms).
+2023-12-22 01:43:14.434 -05:00 [DBG] Opening connection to database 'main' on server ''.
+2023-12-22 01:43:14.434 -05:00 [DBG] Opened connection to database 'main' on server ''.
+2023-12-22 01:43:14.434 -05:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE "__EFMigrationsHistory" (
+    "MigrationId" TEXT NOT NULL CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY,
+    "ProductVersion" TEXT NOT NULL
+);
+2023-12-22 01:43:14.436 -05:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE "__EFMigrationsHistory" (
+    "MigrationId" TEXT NOT NULL CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY,
+    "ProductVersion" TEXT NOT NULL
+);
+2023-12-22 01:43:14.437 -05:00 [DBG] Closing connection to database 'main' on server ''.
+2023-12-22 01:43:14.437 -05:00 [DBG] Closed connection to database 'main' on server '' (0ms).
+2023-12-22 01:43:14.439 -05:00 [DBG] Creating DbConnection.
+2023-12-22 01:43:14.439 -05:00 [DBG] Created DbConnection. (0ms).
+2023-12-22 01:43:14.439 -05:00 [DBG] Opening connection to database 'main' on server ''.
+2023-12-22 01:43:14.439 -05:00 [DBG] Opened connection to database 'main' on server ''.
+2023-12-22 01:43:14.439 -05:00 [DBG] Disposing connection to database 'main' on server ''.
+2023-12-22 01:43:14.439 -05:00 [DBG] Disposed connection to database 'main' on server '' (0ms).
+2023-12-22 01:43:14.439 -05:00 [DBG] Creating DbCommand for 'ExecuteScalar'.
+2023-12-22 01:43:14.439 -05:00 [DBG] Created DbCommand for 'ExecuteScalar' (0ms).
+2023-12-22 01:43:14.439 -05:00 [DBG] Initialized DbCommand for 'ExecuteScalar' (0ms).
+2023-12-22 01:43:14.439 -05:00 [DBG] Opening connection to database 'main' on server ''.
+2023-12-22 01:43:14.440 -05:00 [DBG] Opened connection to database 'main' on server ''.
+2023-12-22 01:43:14.440 -05:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsHistory' AND "type" = 'table';
+2023-12-22 01:43:14.440 -05:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsHistory' AND "type" = 'table';
+2023-12-22 01:43:14.440 -05:00 [DBG] Closing connection to database 'main' on server ''.
+2023-12-22 01:43:14.440 -05:00 [DBG] Closed connection to database 'main' on server '' (0ms).
+2023-12-22 01:43:14.461 -05:00 [INF] Applying migration '20231221092618_InitialCreate'.
+2023-12-22 01:43:14.489 -05:00 [DBG] Opening connection to database 'main' on server ''.
+2023-12-22 01:43:14.490 -05:00 [DBG] Opened connection to database 'main' on server ''.
+2023-12-22 01:43:14.492 -05:00 [DBG] Beginning transaction with isolation level 'Unspecified'.
+2023-12-22 01:43:14.496 -05:00 [DBG] Began transaction with isolation level 'Serializable'.
+2023-12-22 01:43:14.498 -05:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2023-12-22 01:43:14.498 -05:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (0ms).
+2023-12-22 01:43:14.499 -05:00 [DBG] Initialized DbCommand for 'ExecuteNonQuery' (0ms).
+2023-12-22 01:43:14.499 -05:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE "Horses" (
+    "HorseId" TEXT NOT NULL CONSTRAINT "PK_Horses" PRIMARY KEY,
+    "RegisteredName" TEXT NOT NULL,
+    "Age" INTEGER NOT NULL,
+    "Color" TEXT NOT NULL,
+    "Description" TEXT NOT NULL,
+    "PerformanceType" TEXT NOT NULL
+);
+2023-12-22 01:43:14.499 -05:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE "Horses" (
+    "HorseId" TEXT NOT NULL CONSTRAINT "PK_Horses" PRIMARY KEY,
+    "RegisteredName" TEXT NOT NULL,
+    "Age" INTEGER NOT NULL,
+    "Color" TEXT NOT NULL,
+    "Description" TEXT NOT NULL,
+    "PerformanceType" TEXT NOT NULL
+);
+2023-12-22 01:43:14.499 -05:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2023-12-22 01:43:14.499 -05:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (0ms).
+2023-12-22 01:43:14.499 -05:00 [DBG] Initialized DbCommand for 'ExecuteNonQuery' (0ms).
+2023-12-22 01:43:14.499 -05:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE "Users" (
+    "UserId" TEXT NOT NULL CONSTRAINT "PK_Users" PRIMARY KEY,
+    "UserName" TEXT NOT NULL,
+    "FirstName" TEXT NOT NULL,
+    "LastName" TEXT NOT NULL,
+    "FullName" TEXT NOT NULL,
+    "StreetAddress" TEXT NOT NULL,
+    "City" TEXT NOT NULL,
+    "State" TEXT NOT NULL,
+    "PostalCode" TEXT NOT NULL,
+    "CellPhone" TEXT NOT NULL,
+    "UserEmail" TEXT NOT NULL
+);
+2023-12-22 01:43:14.500 -05:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE "Users" (
+    "UserId" TEXT NOT NULL CONSTRAINT "PK_Users" PRIMARY KEY,
+    "UserName" TEXT NOT NULL,
+    "FirstName" TEXT NOT NULL,
+    "LastName" TEXT NOT NULL,
+    "FullName" TEXT NOT NULL,
+    "StreetAddress" TEXT NOT NULL,
+    "City" TEXT NOT NULL,
+    "State" TEXT NOT NULL,
+    "PostalCode" TEXT NOT NULL,
+    "CellPhone" TEXT NOT NULL,
+    "UserEmail" TEXT NOT NULL
+);
+2023-12-22 01:43:14.500 -05:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2023-12-22 01:43:14.500 -05:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (0ms).
+2023-12-22 01:43:14.500 -05:00 [DBG] Initialized DbCommand for 'ExecuteNonQuery' (0ms).
+2023-12-22 01:43:14.500 -05:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "__EFMigrationsHistory" ("MigrationId", "ProductVersion")
+VALUES ('20231221092618_InitialCreate', '7.0.14');
+2023-12-22 01:43:14.503 -05:00 [ERR] Failed executing DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "__EFMigrationsHistory" ("MigrationId", "ProductVersion")
+VALUES ('20231221092618_InitialCreate', '7.0.14');
+2023-12-22 01:43:14.507 -05:00 [DBG] Disposing transaction.
+2023-12-22 01:43:14.508 -05:00 [DBG] Closing connection to database 'main' on server ''.
+2023-12-22 01:43:14.508 -05:00 [DBG] Closed connection to database 'main' on server '' (0ms).
+2023-12-22 01:43:14.510 -05:00 [DBG] 'AuctionDbContext' disposed.
+2023-12-22 01:43:14.511 -05:00 [DBG] Disposing connection to database 'main' on server ''.
+2023-12-22 01:43:14.511 -05:00 [DBG] Disposed connection to database 'main' on server '' (0ms).
+2023-12-22 01:53:15.988 -05:00 [DBG] An additional 'IServiceProvider' was created for internal use by Entity Framework. An existing service provider was not used due to the following configuration changes: configuration changed for 'Core:EnableSensitiveDataLogging'.
+2023-12-22 01:53:16.450 -05:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2023-12-22 01:53:16.688 -05:00 [DBG] Entity Framework Core 7.0.14 initialized 'AuctionDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite:7.0.14' with options: SensitiveDataLoggingEnabled 
+2023-12-22 01:53:16.706 -05:00 [DBG] Creating DbConnection.
+2023-12-22 01:53:16.717 -05:00 [DBG] Created DbConnection. (6ms).
+2023-12-22 01:53:16.725 -05:00 [DBG] Migrating using database 'main' on server ''.
+2023-12-22 01:53:16.746 -05:00 [DBG] Creating DbConnection.
+2023-12-22 01:53:16.747 -05:00 [DBG] Created DbConnection. (0ms).
+2023-12-22 01:53:16.750 -05:00 [DBG] Opening connection to database 'main' on server ''.
+2023-12-22 01:53:16.760 -05:00 [DBG] Opened connection to database 'main' on server ''.
+2023-12-22 01:53:16.765 -05:00 [DBG] Disposing connection to database 'main' on server ''.
+2023-12-22 01:53:16.772 -05:00 [DBG] Disposed connection to database 'main' on server '' (0ms).
+2023-12-22 01:53:16.782 -05:00 [DBG] Creating DbCommand for 'ExecuteScalar'.
+2023-12-22 01:53:16.791 -05:00 [DBG] Created DbCommand for 'ExecuteScalar' (2ms).
+2023-12-22 01:53:16.792 -05:00 [DBG] Initialized DbCommand for 'ExecuteScalar' (10ms).
+2023-12-22 01:53:16.792 -05:00 [DBG] Opening connection to database 'main' on server ''.
+2023-12-22 01:53:16.792 -05:00 [DBG] Opened connection to database 'main' on server ''.
+2023-12-22 01:53:16.801 -05:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsHistory' AND "type" = 'table';
+2023-12-22 01:53:16.825 -05:00 [INF] Executed DbCommand (21ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsHistory' AND "type" = 'table';
+2023-12-22 01:53:16.829 -05:00 [DBG] Closing connection to database 'main' on server ''.
+2023-12-22 01:53:16.830 -05:00 [DBG] Closed connection to database 'main' on server '' (0ms).
+2023-12-22 01:53:16.830 -05:00 [DBG] Creating DbConnection.
+2023-12-22 01:53:16.830 -05:00 [DBG] Created DbConnection. (0ms).
+2023-12-22 01:53:16.830 -05:00 [DBG] Opening connection to database 'main' on server ''.
+2023-12-22 01:53:16.830 -05:00 [DBG] Opened connection to database 'main' on server ''.
+2023-12-22 01:53:16.830 -05:00 [DBG] Disposing connection to database 'main' on server ''.
+2023-12-22 01:53:16.831 -05:00 [DBG] Disposed connection to database 'main' on server '' (0ms).
+2023-12-22 01:53:16.952 -05:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2023-12-22 01:53:16.952 -05:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (0ms).
+2023-12-22 01:53:16.952 -05:00 [DBG] Initialized DbCommand for 'ExecuteNonQuery' (0ms).
+2023-12-22 01:53:16.952 -05:00 [DBG] Opening connection to database 'main' on server ''.
+2023-12-22 01:53:16.952 -05:00 [DBG] Opened connection to database 'main' on server ''.
+2023-12-22 01:53:16.953 -05:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE "__EFMigrationsHistory" (
+    "MigrationId" TEXT NOT NULL CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY,
+    "ProductVersion" TEXT NOT NULL
+);
+2023-12-22 01:53:16.954 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE "__EFMigrationsHistory" (
+    "MigrationId" TEXT NOT NULL CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY,
+    "ProductVersion" TEXT NOT NULL
+);
+2023-12-22 01:53:16.954 -05:00 [DBG] Closing connection to database 'main' on server ''.
+2023-12-22 01:53:16.954 -05:00 [DBG] Closed connection to database 'main' on server '' (0ms).
+2023-12-22 01:53:16.955 -05:00 [DBG] Creating DbConnection.
+2023-12-22 01:53:16.955 -05:00 [DBG] Created DbConnection. (0ms).
+2023-12-22 01:53:16.955 -05:00 [DBG] Opening connection to database 'main' on server ''.
+2023-12-22 01:53:16.956 -05:00 [DBG] Opened connection to database 'main' on server ''.
+2023-12-22 01:53:16.956 -05:00 [DBG] Disposing connection to database 'main' on server ''.
+2023-12-22 01:53:16.956 -05:00 [DBG] Disposed connection to database 'main' on server '' (0ms).
+2023-12-22 01:53:16.956 -05:00 [DBG] Creating DbCommand for 'ExecuteScalar'.
+2023-12-22 01:53:16.956 -05:00 [DBG] Created DbCommand for 'ExecuteScalar' (0ms).
+2023-12-22 01:53:16.956 -05:00 [DBG] Initialized DbCommand for 'ExecuteScalar' (0ms).
+2023-12-22 01:53:16.956 -05:00 [DBG] Opening connection to database 'main' on server ''.
+2023-12-22 01:53:16.956 -05:00 [DBG] Opened connection to database 'main' on server ''.
+2023-12-22 01:53:16.956 -05:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsHistory' AND "type" = 'table';
+2023-12-22 01:53:16.956 -05:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsHistory' AND "type" = 'table';
+2023-12-22 01:53:16.956 -05:00 [DBG] Closing connection to database 'main' on server ''.
+2023-12-22 01:53:16.956 -05:00 [DBG] Closed connection to database 'main' on server '' (0ms).
+2023-12-22 01:53:16.970 -05:00 [INF] Applying migration '20231221092618_InitialCreate'.
+2023-12-22 01:53:16.993 -05:00 [DBG] Opening connection to database 'main' on server ''.
+2023-12-22 01:53:16.994 -05:00 [DBG] Opened connection to database 'main' on server ''.
+2023-12-22 01:53:16.997 -05:00 [DBG] Beginning transaction with isolation level 'Unspecified'.
+2023-12-22 01:53:17.000 -05:00 [DBG] Began transaction with isolation level 'Serializable'.
+2023-12-22 01:53:17.001 -05:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2023-12-22 01:53:17.001 -05:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (0ms).
+2023-12-22 01:53:17.001 -05:00 [DBG] Initialized DbCommand for 'ExecuteNonQuery' (0ms).
+2023-12-22 01:53:17.001 -05:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE "Horses" (
+    "HorseId" TEXT NOT NULL CONSTRAINT "PK_Horses" PRIMARY KEY,
+    "RegisteredName" TEXT NOT NULL,
+    "Age" INTEGER NOT NULL,
+    "Color" TEXT NOT NULL,
+    "Description" TEXT NOT NULL,
+    "PerformanceType" TEXT NOT NULL
+);
+2023-12-22 01:53:17.002 -05:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE "Horses" (
+    "HorseId" TEXT NOT NULL CONSTRAINT "PK_Horses" PRIMARY KEY,
+    "RegisteredName" TEXT NOT NULL,
+    "Age" INTEGER NOT NULL,
+    "Color" TEXT NOT NULL,
+    "Description" TEXT NOT NULL,
+    "PerformanceType" TEXT NOT NULL
+);
+2023-12-22 01:53:17.002 -05:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2023-12-22 01:53:17.002 -05:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (0ms).
+2023-12-22 01:53:17.002 -05:00 [DBG] Initialized DbCommand for 'ExecuteNonQuery' (0ms).
+2023-12-22 01:53:17.002 -05:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE "Users" (
+    "UserId" TEXT NOT NULL CONSTRAINT "PK_Users" PRIMARY KEY,
+    "UserName" TEXT NOT NULL,
+    "FirstName" TEXT NOT NULL,
+    "LastName" TEXT NOT NULL,
+    "FullName" TEXT NOT NULL,
+    "StreetAddress" TEXT NOT NULL,
+    "City" TEXT NOT NULL,
+    "State" TEXT NOT NULL,
+    "PostalCode" TEXT NOT NULL,
+    "CellPhone" TEXT NOT NULL,
+    "UserEmail" TEXT NOT NULL
+);
+2023-12-22 01:53:17.002 -05:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE "Users" (
+    "UserId" TEXT NOT NULL CONSTRAINT "PK_Users" PRIMARY KEY,
+    "UserName" TEXT NOT NULL,
+    "FirstName" TEXT NOT NULL,
+    "LastName" TEXT NOT NULL,
+    "FullName" TEXT NOT NULL,
+    "StreetAddress" TEXT NOT NULL,
+    "City" TEXT NOT NULL,
+    "State" TEXT NOT NULL,
+    "PostalCode" TEXT NOT NULL,
+    "CellPhone" TEXT NOT NULL,
+    "UserEmail" TEXT NOT NULL
+);
+2023-12-22 01:53:17.002 -05:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2023-12-22 01:53:17.002 -05:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (0ms).
+2023-12-22 01:53:17.002 -05:00 [DBG] Initialized DbCommand for 'ExecuteNonQuery' (0ms).
+2023-12-22 01:53:17.002 -05:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "__EFMigrationsHistory" ("MigrationId", "ProductVersion")
+VALUES ('20231221092618_InitialCreate', '7.0.14');
+2023-12-22 01:53:17.005 -05:00 [ERR] Failed executing DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "__EFMigrationsHistory" ("MigrationId", "ProductVersion")
+VALUES ('20231221092618_InitialCreate', '7.0.14');
+2023-12-22 01:53:17.008 -05:00 [DBG] Disposing transaction.
+2023-12-22 01:53:17.009 -05:00 [DBG] Closing connection to database 'main' on server ''.
+2023-12-22 01:53:17.009 -05:00 [DBG] Closed connection to database 'main' on server '' (0ms).
+2023-12-22 01:53:17.011 -05:00 [DBG] 'AuctionDbContext' disposed.
+2023-12-22 01:53:17.012 -05:00 [DBG] Disposing connection to database 'main' on server ''.
+2023-12-22 01:53:17.012 -05:00 [DBG] Disposed connection to database 'main' on server '' (0ms).
+2023-12-22 02:22:16.193 -05:00 [DBG] An additional 'IServiceProvider' was created for internal use by Entity Framework. An existing service provider was not used due to the following configuration changes: configuration changed for 'Core:EnableSensitiveDataLogging'.
+2023-12-22 02:22:16.656 -05:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2023-12-22 02:22:16.886 -05:00 [DBG] Entity Framework Core 7.0.14 initialized 'AuctionDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite:7.0.14' with options: SensitiveDataLoggingEnabled 
+2023-12-22 02:22:16.903 -05:00 [DBG] Creating DbConnection.
+2023-12-22 02:22:16.915 -05:00 [DBG] Created DbConnection. (6ms).
+2023-12-22 02:22:16.922 -05:00 [DBG] Migrating using database 'main' on server ''.
+2023-12-22 02:22:16.944 -05:00 [DBG] Creating DbConnection.
+2023-12-22 02:22:16.945 -05:00 [DBG] Created DbConnection. (0ms).
+2023-12-22 02:22:16.948 -05:00 [DBG] Opening connection to database 'main' on server ''.
+2023-12-22 02:22:16.958 -05:00 [DBG] Opened connection to database 'main' on server ''.
+2023-12-22 02:22:16.963 -05:00 [DBG] Disposing connection to database 'main' on server ''.
+2023-12-22 02:22:16.970 -05:00 [DBG] Disposed connection to database 'main' on server '' (0ms).
+2023-12-22 02:22:16.979 -05:00 [DBG] Creating DbCommand for 'ExecuteScalar'.
+2023-12-22 02:22:16.989 -05:00 [DBG] Created DbCommand for 'ExecuteScalar' (2ms).
+2023-12-22 02:22:16.990 -05:00 [DBG] Initialized DbCommand for 'ExecuteScalar' (10ms).
+2023-12-22 02:22:16.990 -05:00 [DBG] Opening connection to database 'main' on server ''.
+2023-12-22 02:22:16.990 -05:00 [DBG] Opened connection to database 'main' on server ''.
+2023-12-22 02:22:16.998 -05:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsHistory' AND "type" = 'table';
+2023-12-22 02:22:17.022 -05:00 [INF] Executed DbCommand (21ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsHistory' AND "type" = 'table';
+2023-12-22 02:22:17.027 -05:00 [DBG] Closing connection to database 'main' on server ''.
+2023-12-22 02:22:17.027 -05:00 [DBG] Closed connection to database 'main' on server '' (0ms).
+2023-12-22 02:22:17.028 -05:00 [DBG] Creating DbConnection.
+2023-12-22 02:22:17.028 -05:00 [DBG] Created DbConnection. (0ms).
+2023-12-22 02:22:17.028 -05:00 [DBG] Opening connection to database 'main' on server ''.
+2023-12-22 02:22:17.028 -05:00 [DBG] Opened connection to database 'main' on server ''.
+2023-12-22 02:22:17.028 -05:00 [DBG] Disposing connection to database 'main' on server ''.
+2023-12-22 02:22:17.028 -05:00 [DBG] Disposed connection to database 'main' on server '' (0ms).
+2023-12-22 02:22:17.148 -05:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2023-12-22 02:22:17.148 -05:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (0ms).
+2023-12-22 02:22:17.148 -05:00 [DBG] Initialized DbCommand for 'ExecuteNonQuery' (0ms).
+2023-12-22 02:22:17.148 -05:00 [DBG] Opening connection to database 'main' on server ''.
+2023-12-22 02:22:17.148 -05:00 [DBG] Opened connection to database 'main' on server ''.
+2023-12-22 02:22:17.148 -05:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE "__EFMigrationsHistory" (
+    "MigrationId" TEXT NOT NULL CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY,
+    "ProductVersion" TEXT NOT NULL
+);
+2023-12-22 02:22:17.150 -05:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE "__EFMigrationsHistory" (
+    "MigrationId" TEXT NOT NULL CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY,
+    "ProductVersion" TEXT NOT NULL
+);
+2023-12-22 02:22:17.150 -05:00 [DBG] Closing connection to database 'main' on server ''.
+2023-12-22 02:22:17.150 -05:00 [DBG] Closed connection to database 'main' on server '' (0ms).
+2023-12-22 02:22:17.151 -05:00 [DBG] Creating DbConnection.
+2023-12-22 02:22:17.151 -05:00 [DBG] Created DbConnection. (0ms).
+2023-12-22 02:22:17.151 -05:00 [DBG] Opening connection to database 'main' on server ''.
+2023-12-22 02:22:17.151 -05:00 [DBG] Opened connection to database 'main' on server ''.
+2023-12-22 02:22:17.152 -05:00 [DBG] Disposing connection to database 'main' on server ''.
+2023-12-22 02:22:17.152 -05:00 [DBG] Disposed connection to database 'main' on server '' (0ms).
+2023-12-22 02:22:17.152 -05:00 [DBG] Creating DbCommand for 'ExecuteScalar'.
+2023-12-22 02:22:17.152 -05:00 [DBG] Created DbCommand for 'ExecuteScalar' (0ms).
+2023-12-22 02:22:17.152 -05:00 [DBG] Initialized DbCommand for 'ExecuteScalar' (0ms).
+2023-12-22 02:22:17.152 -05:00 [DBG] Opening connection to database 'main' on server ''.
+2023-12-22 02:22:17.152 -05:00 [DBG] Opened connection to database 'main' on server ''.
+2023-12-22 02:22:17.152 -05:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsHistory' AND "type" = 'table';
+2023-12-22 02:22:17.152 -05:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsHistory' AND "type" = 'table';
+2023-12-22 02:22:17.152 -05:00 [DBG] Closing connection to database 'main' on server ''.
+2023-12-22 02:22:17.152 -05:00 [DBG] Closed connection to database 'main' on server '' (0ms).
+2023-12-22 02:22:17.168 -05:00 [INF] Applying migration '20231221092618_InitialCreate'.
+2023-12-22 02:22:17.194 -05:00 [DBG] Opening connection to database 'main' on server ''.
+2023-12-22 02:22:17.194 -05:00 [DBG] Opened connection to database 'main' on server ''.
+2023-12-22 02:22:17.196 -05:00 [DBG] Beginning transaction with isolation level 'Unspecified'.
+2023-12-22 02:22:17.198 -05:00 [DBG] Began transaction with isolation level 'Serializable'.
+2023-12-22 02:22:17.199 -05:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2023-12-22 02:22:17.199 -05:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (0ms).
+2023-12-22 02:22:17.199 -05:00 [DBG] Initialized DbCommand for 'ExecuteNonQuery' (0ms).
+2023-12-22 02:22:17.200 -05:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE "Horses" (
+    "HorseId" TEXT NOT NULL CONSTRAINT "PK_Horses" PRIMARY KEY,
+    "RegisteredName" TEXT NOT NULL,
+    "Age" INTEGER NOT NULL,
+    "Color" TEXT NOT NULL,
+    "Description" TEXT NOT NULL,
+    "PerformanceType" TEXT NOT NULL
+);
+2023-12-22 02:22:17.200 -05:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE "Horses" (
+    "HorseId" TEXT NOT NULL CONSTRAINT "PK_Horses" PRIMARY KEY,
+    "RegisteredName" TEXT NOT NULL,
+    "Age" INTEGER NOT NULL,
+    "Color" TEXT NOT NULL,
+    "Description" TEXT NOT NULL,
+    "PerformanceType" TEXT NOT NULL
+);
+2023-12-22 02:22:17.200 -05:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2023-12-22 02:22:17.200 -05:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (0ms).
+2023-12-22 02:22:17.200 -05:00 [DBG] Initialized DbCommand for 'ExecuteNonQuery' (0ms).
+2023-12-22 02:22:17.200 -05:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE "Users" (
+    "UserId" TEXT NOT NULL CONSTRAINT "PK_Users" PRIMARY KEY,
+    "UserName" TEXT NOT NULL,
+    "FirstName" TEXT NOT NULL,
+    "LastName" TEXT NOT NULL,
+    "FullName" TEXT NOT NULL,
+    "StreetAddress" TEXT NOT NULL,
+    "City" TEXT NOT NULL,
+    "State" TEXT NOT NULL,
+    "PostalCode" TEXT NOT NULL,
+    "CellPhone" TEXT NOT NULL,
+    "UserEmail" TEXT NOT NULL
+);
+2023-12-22 02:22:17.200 -05:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE "Users" (
+    "UserId" TEXT NOT NULL CONSTRAINT "PK_Users" PRIMARY KEY,
+    "UserName" TEXT NOT NULL,
+    "FirstName" TEXT NOT NULL,
+    "LastName" TEXT NOT NULL,
+    "FullName" TEXT NOT NULL,
+    "StreetAddress" TEXT NOT NULL,
+    "City" TEXT NOT NULL,
+    "State" TEXT NOT NULL,
+    "PostalCode" TEXT NOT NULL,
+    "CellPhone" TEXT NOT NULL,
+    "UserEmail" TEXT NOT NULL
+);
+2023-12-22 02:22:17.200 -05:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2023-12-22 02:22:17.200 -05:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (0ms).
+2023-12-22 02:22:17.200 -05:00 [DBG] Initialized DbCommand for 'ExecuteNonQuery' (0ms).
+2023-12-22 02:22:17.200 -05:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "__EFMigrationsHistory" ("MigrationId", "ProductVersion")
+VALUES ('20231221092618_InitialCreate', '7.0.14');
+2023-12-22 02:22:17.203 -05:00 [ERR] Failed executing DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "__EFMigrationsHistory" ("MigrationId", "ProductVersion")
+VALUES ('20231221092618_InitialCreate', '7.0.14');
+2023-12-22 02:22:17.208 -05:00 [DBG] Disposing transaction.
+2023-12-22 02:22:17.208 -05:00 [DBG] Closing connection to database 'main' on server ''.
+2023-12-22 02:22:17.209 -05:00 [DBG] Closed connection to database 'main' on server '' (0ms).
+2023-12-22 02:22:17.211 -05:00 [DBG] 'AuctionDbContext' disposed.
+2023-12-22 02:22:17.212 -05:00 [DBG] Disposing connection to database 'main' on server ''.
+2023-12-22 02:22:17.212 -05:00 [DBG] Disposed connection to database 'main' on server '' (0ms).
+2023-12-22 02:39:25.260 -05:00 [DBG] An 'IServiceProvider' was created for internal use by Entity Framework.
+2023-12-22 02:39:25.332 -05:00 [DBG] An additional 'IServiceProvider' was created for internal use by Entity Framework. An existing service provider was not used due to the following configuration changes: configuration changed for 'Core:EnableSensitiveDataLogging'.
+2023-12-22 02:39:25.925 -05:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2023-12-22 02:39:26.266 -05:00 [DBG] Entity Framework Core 7.0.14 initialized 'AuctionDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite:7.0.14' with options: SensitiveDataLoggingEnabled 
+2023-12-22 02:39:26.304 -05:00 [DBG] Creating DbConnection.
+2023-12-22 02:39:26.323 -05:00 [DBG] Created DbConnection. (8ms).
+2023-12-22 02:39:26.336 -05:00 [DBG] Migrating using database 'main' on server ''.
+2023-12-22 02:39:26.371 -05:00 [DBG] Creating DbConnection.
+2023-12-22 02:39:26.374 -05:00 [DBG] Created DbConnection. (3ms).
+2023-12-22 02:39:26.380 -05:00 [DBG] Opening connection to database 'main' on server ''.
+2023-12-22 02:39:26.398 -05:00 [DBG] Opened connection to database 'main' on server ''.
+2023-12-22 02:39:26.407 -05:00 [DBG] Disposing connection to database 'main' on server ''.
+2023-12-22 02:39:26.416 -05:00 [DBG] Disposed connection to database 'main' on server '' (2ms).
+2023-12-22 02:39:26.436 -05:00 [DBG] Creating DbCommand for 'ExecuteScalar'.
+2023-12-22 02:39:26.455 -05:00 [DBG] Created DbCommand for 'ExecuteScalar' (6ms).
+2023-12-22 02:39:26.459 -05:00 [DBG] Initialized DbCommand for 'ExecuteScalar' (23ms).
+2023-12-22 02:39:26.460 -05:00 [DBG] Opening connection to database 'main' on server ''.
+2023-12-22 02:39:26.462 -05:00 [DBG] Opened connection to database 'main' on server ''.
+2023-12-22 02:39:26.478 -05:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsHistory' AND "type" = 'table';
+2023-12-22 02:39:26.516 -05:00 [INF] Executed DbCommand (38ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsHistory' AND "type" = 'table';
+2023-12-22 02:39:26.527 -05:00 [DBG] Closing connection to database 'main' on server ''.
+2023-12-22 02:39:26.530 -05:00 [DBG] Closed connection to database 'main' on server '' (2ms).
+2023-12-22 02:39:26.533 -05:00 [DBG] Creating DbConnection.
+2023-12-22 02:39:26.537 -05:00 [DBG] Created DbConnection. (3ms).
+2023-12-22 02:39:26.538 -05:00 [DBG] Opening connection to database 'main' on server ''.
+2023-12-22 02:39:26.539 -05:00 [DBG] Opened connection to database 'main' on server ''.
+2023-12-22 02:39:26.541 -05:00 [DBG] Disposing connection to database 'main' on server ''.
+2023-12-22 02:39:26.542 -05:00 [DBG] Disposed connection to database 'main' on server '' (1ms).
+2023-12-22 02:39:26.729 -05:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2023-12-22 02:39:26.731 -05:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (1ms).
+2023-12-22 02:39:26.732 -05:00 [DBG] Initialized DbCommand for 'ExecuteNonQuery' (2ms).
+2023-12-22 02:39:26.734 -05:00 [DBG] Opening connection to database 'main' on server ''.
+2023-12-22 02:39:26.735 -05:00 [DBG] Opened connection to database 'main' on server ''.
+2023-12-22 02:39:26.737 -05:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE "__EFMigrationsHistory" (
+    "MigrationId" TEXT NOT NULL CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY,
+    "ProductVersion" TEXT NOT NULL
+);
+2023-12-22 02:39:26.743 -05:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE "__EFMigrationsHistory" (
+    "MigrationId" TEXT NOT NULL CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY,
+    "ProductVersion" TEXT NOT NULL
+);
+2023-12-22 02:39:26.746 -05:00 [DBG] Closing connection to database 'main' on server ''.
+2023-12-22 02:39:26.748 -05:00 [DBG] Closed connection to database 'main' on server '' (1ms).
+2023-12-22 02:39:26.751 -05:00 [DBG] Creating DbConnection.
+2023-12-22 02:39:26.752 -05:00 [DBG] Created DbConnection. (1ms).
+2023-12-22 02:39:26.754 -05:00 [DBG] Opening connection to database 'main' on server ''.
+2023-12-22 02:39:26.755 -05:00 [DBG] Opened connection to database 'main' on server ''.
+2023-12-22 02:39:26.757 -05:00 [DBG] Disposing connection to database 'main' on server ''.
+2023-12-22 02:39:26.759 -05:00 [DBG] Disposed connection to database 'main' on server '' (1ms).
+2023-12-22 02:39:26.761 -05:00 [DBG] Creating DbCommand for 'ExecuteScalar'.
+2023-12-22 02:39:26.762 -05:00 [DBG] Created DbCommand for 'ExecuteScalar' (1ms).
+2023-12-22 02:39:26.765 -05:00 [DBG] Initialized DbCommand for 'ExecuteScalar' (3ms).
+2023-12-22 02:39:26.766 -05:00 [DBG] Opening connection to database 'main' on server ''.
+2023-12-22 02:39:26.768 -05:00 [DBG] Opened connection to database 'main' on server ''.
+2023-12-22 02:39:26.770 -05:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsHistory' AND "type" = 'table';
+2023-12-22 02:39:26.772 -05:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsHistory' AND "type" = 'table';
+2023-12-22 02:39:26.775 -05:00 [DBG] Closing connection to database 'main' on server ''.
+2023-12-22 02:39:26.776 -05:00 [DBG] Closed connection to database 'main' on server '' (1ms).
+2023-12-22 02:39:26.794 -05:00 [INF] Applying migration '20231221092618_InitialCreate'.
+2023-12-22 02:39:26.821 -05:00 [DBG] Opening connection to database 'main' on server ''.
+2023-12-22 02:39:26.823 -05:00 [DBG] Opened connection to database 'main' on server ''.
+2023-12-22 02:39:26.826 -05:00 [DBG] Beginning transaction with isolation level 'Unspecified'.
+2023-12-22 02:39:26.830 -05:00 [DBG] Began transaction with isolation level 'Serializable'.
+2023-12-22 02:39:26.833 -05:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2023-12-22 02:39:26.834 -05:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (1ms).
+2023-12-22 02:39:26.837 -05:00 [DBG] Initialized DbCommand for 'ExecuteNonQuery' (3ms).
+2023-12-22 02:39:26.838 -05:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE "Horses" (
+    "HorseId" TEXT NOT NULL CONSTRAINT "PK_Horses" PRIMARY KEY,
+    "RegisteredName" TEXT NOT NULL,
+    "Age" INTEGER NOT NULL,
+    "Color" TEXT NOT NULL,
+    "Description" TEXT NOT NULL,
+    "PerformanceType" TEXT NOT NULL
+);
+2023-12-22 02:39:26.842 -05:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE "Horses" (
+    "HorseId" TEXT NOT NULL CONSTRAINT "PK_Horses" PRIMARY KEY,
+    "RegisteredName" TEXT NOT NULL,
+    "Age" INTEGER NOT NULL,
+    "Color" TEXT NOT NULL,
+    "Description" TEXT NOT NULL,
+    "PerformanceType" TEXT NOT NULL
+);
+2023-12-22 02:39:26.845 -05:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2023-12-22 02:39:26.848 -05:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (2ms).
+2023-12-22 02:39:26.850 -05:00 [DBG] Initialized DbCommand for 'ExecuteNonQuery' (4ms).
+2023-12-22 02:39:26.851 -05:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE "Users" (
+    "UserId" TEXT NOT NULL CONSTRAINT "PK_Users" PRIMARY KEY,
+    "UserName" TEXT NOT NULL,
+    "FirstName" TEXT NOT NULL,
+    "LastName" TEXT NOT NULL,
+    "FullName" TEXT NOT NULL,
+    "StreetAddress" TEXT NOT NULL,
+    "City" TEXT NOT NULL,
+    "State" TEXT NOT NULL,
+    "PostalCode" TEXT NOT NULL,
+    "CellPhone" TEXT NOT NULL,
+    "UserEmail" TEXT NOT NULL
+);
+2023-12-22 02:39:26.856 -05:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE "Users" (
+    "UserId" TEXT NOT NULL CONSTRAINT "PK_Users" PRIMARY KEY,
+    "UserName" TEXT NOT NULL,
+    "FirstName" TEXT NOT NULL,
+    "LastName" TEXT NOT NULL,
+    "FullName" TEXT NOT NULL,
+    "StreetAddress" TEXT NOT NULL,
+    "City" TEXT NOT NULL,
+    "State" TEXT NOT NULL,
+    "PostalCode" TEXT NOT NULL,
+    "CellPhone" TEXT NOT NULL,
+    "UserEmail" TEXT NOT NULL
+);
+2023-12-22 02:39:26.861 -05:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2023-12-22 02:39:26.862 -05:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (1ms).
+2023-12-22 02:39:26.864 -05:00 [DBG] Initialized DbCommand for 'ExecuteNonQuery' (3ms).
+2023-12-22 02:39:26.866 -05:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "__EFMigrationsHistory" ("MigrationId", "ProductVersion")
+VALUES ('20231221092618_InitialCreate', '7.0.14');
+2023-12-22 02:39:26.872 -05:00 [ERR] Failed executing DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "__EFMigrationsHistory" ("MigrationId", "ProductVersion")
+VALUES ('20231221092618_InitialCreate', '7.0.14');
+2023-12-22 02:39:26.877 -05:00 [DBG] Disposing transaction.
+2023-12-22 02:39:26.878 -05:00 [DBG] Closing connection to database 'main' on server ''.
+2023-12-22 02:39:26.881 -05:00 [DBG] Closed connection to database 'main' on server '' (2ms).
+2023-12-22 02:39:26.886 -05:00 [DBG] 'AuctionDbContext' disposed.
+2023-12-22 02:39:26.889 -05:00 [DBG] Disposing connection to database 'main' on server ''.
+2023-12-22 02:39:26.890 -05:00 [DBG] Disposed connection to database 'main' on server '' (1ms).
+2023-12-22 02:43:33.567 -05:00 [DBG] An 'IServiceProvider' was created for internal use by Entity Framework.
+2023-12-22 02:43:33.652 -05:00 [DBG] An additional 'IServiceProvider' was created for internal use by Entity Framework. An existing service provider was not used due to the following configuration changes: configuration changed for 'Core:EnableSensitiveDataLogging'.
+2023-12-22 02:43:34.238 -05:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2023-12-22 02:43:34.537 -05:00 [DBG] Entity Framework Core 7.0.14 initialized 'AuctionDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite:7.0.14' with options: SensitiveDataLoggingEnabled 
+2023-12-22 02:43:34.563 -05:00 [DBG] Creating DbConnection.
+2023-12-22 02:43:34.580 -05:00 [DBG] Created DbConnection. (8ms).
+2023-12-22 02:43:34.593 -05:00 [DBG] Migrating using database 'main' on server ''.
+2023-12-22 02:43:34.622 -05:00 [DBG] Creating DbConnection.
+2023-12-22 02:43:34.626 -05:00 [DBG] Created DbConnection. (3ms).
+2023-12-22 02:43:34.631 -05:00 [DBG] Opening connection to database 'main' on server ''.
+2023-12-22 02:43:34.646 -05:00 [DBG] Opened connection to database 'main' on server ''.
+2023-12-22 02:43:34.653 -05:00 [DBG] Disposing connection to database 'main' on server ''.
+2023-12-22 02:43:34.666 -05:00 [DBG] Disposed connection to database 'main' on server '' (2ms).
+2023-12-22 02:43:34.680 -05:00 [DBG] Creating DbCommand for 'ExecuteScalar'.
+2023-12-22 02:43:34.693 -05:00 [DBG] Created DbCommand for 'ExecuteScalar' (5ms).
+2023-12-22 02:43:34.697 -05:00 [DBG] Initialized DbCommand for 'ExecuteScalar' (17ms).
+2023-12-22 02:43:34.698 -05:00 [DBG] Opening connection to database 'main' on server ''.
+2023-12-22 02:43:34.700 -05:00 [DBG] Opened connection to database 'main' on server ''.
+2023-12-22 02:43:34.713 -05:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsHistory' AND "type" = 'table';
+2023-12-22 02:43:34.752 -05:00 [INF] Executed DbCommand (33ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsHistory' AND "type" = 'table';
+2023-12-22 02:43:34.761 -05:00 [DBG] Closing connection to database 'main' on server ''.
+2023-12-22 02:43:34.764 -05:00 [DBG] Closed connection to database 'main' on server '' (2ms).
+2023-12-22 02:43:34.766 -05:00 [DBG] Creating DbConnection.
+2023-12-22 02:43:34.768 -05:00 [DBG] Created DbConnection. (1ms).
+2023-12-22 02:43:34.769 -05:00 [DBG] Opening connection to database 'main' on server ''.
+2023-12-22 02:43:34.770 -05:00 [DBG] Opened connection to database 'main' on server ''.
+2023-12-22 02:43:34.772 -05:00 [DBG] Disposing connection to database 'main' on server ''.
+2023-12-22 02:43:34.774 -05:00 [DBG] Disposed connection to database 'main' on server '' (1ms).
+2023-12-22 02:43:34.933 -05:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2023-12-22 02:43:34.934 -05:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (1ms).
+2023-12-22 02:43:34.936 -05:00 [DBG] Initialized DbCommand for 'ExecuteNonQuery' (2ms).
+2023-12-22 02:43:34.938 -05:00 [DBG] Opening connection to database 'main' on server ''.
+2023-12-22 02:43:34.940 -05:00 [DBG] Opened connection to database 'main' on server ''.
+2023-12-22 02:43:34.942 -05:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE "__EFMigrationsHistory" (
+    "MigrationId" TEXT NOT NULL CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY,
+    "ProductVersion" TEXT NOT NULL
+);
+2023-12-22 02:43:34.948 -05:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE "__EFMigrationsHistory" (
+    "MigrationId" TEXT NOT NULL CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY,
+    "ProductVersion" TEXT NOT NULL
+);
+2023-12-22 02:43:34.951 -05:00 [DBG] Closing connection to database 'main' on server ''.
+2023-12-22 02:43:34.953 -05:00 [DBG] Closed connection to database 'main' on server '' (1ms).
+2023-12-22 02:43:34.957 -05:00 [DBG] Creating DbConnection.
+2023-12-22 02:43:34.958 -05:00 [DBG] Created DbConnection. (1ms).
+2023-12-22 02:43:34.959 -05:00 [DBG] Opening connection to database 'main' on server ''.
+2023-12-22 02:43:34.962 -05:00 [DBG] Opened connection to database 'main' on server ''.
+2023-12-22 02:43:34.964 -05:00 [DBG] Disposing connection to database 'main' on server ''.
+2023-12-22 02:43:34.966 -05:00 [DBG] Disposed connection to database 'main' on server '' (2ms).
+2023-12-22 02:43:34.968 -05:00 [DBG] Creating DbCommand for 'ExecuteScalar'.
+2023-12-22 02:43:34.970 -05:00 [DBG] Created DbCommand for 'ExecuteScalar' (1ms).
+2023-12-22 02:43:34.972 -05:00 [DBG] Initialized DbCommand for 'ExecuteScalar' (3ms).
+2023-12-22 02:43:34.973 -05:00 [DBG] Opening connection to database 'main' on server ''.
+2023-12-22 02:43:34.975 -05:00 [DBG] Opened connection to database 'main' on server ''.
+2023-12-22 02:43:34.977 -05:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsHistory' AND "type" = 'table';
+2023-12-22 02:43:34.982 -05:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsHistory' AND "type" = 'table';
+2023-12-22 02:43:34.984 -05:00 [DBG] Closing connection to database 'main' on server ''.
+2023-12-22 02:43:34.986 -05:00 [DBG] Closed connection to database 'main' on server '' (1ms).
+2023-12-22 02:43:35.007 -05:00 [INF] Applying migration '20231221092618_InitialCreate'.
+2023-12-22 02:43:35.043 -05:00 [DBG] Opening connection to database 'main' on server ''.
+2023-12-22 02:43:35.045 -05:00 [DBG] Opened connection to database 'main' on server ''.
+2023-12-22 02:43:35.050 -05:00 [DBG] Beginning transaction with isolation level 'Unspecified'.
+2023-12-22 02:43:35.056 -05:00 [DBG] Began transaction with isolation level 'Serializable'.
+2023-12-22 02:43:35.059 -05:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2023-12-22 02:43:35.060 -05:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (1ms).
+2023-12-22 02:43:35.064 -05:00 [DBG] Initialized DbCommand for 'ExecuteNonQuery' (5ms).
+2023-12-22 02:43:35.066 -05:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE "Horses" (
+    "HorseId" TEXT NOT NULL CONSTRAINT "PK_Horses" PRIMARY KEY,
+    "RegisteredName" TEXT NOT NULL,
+    "Age" INTEGER NOT NULL,
+    "Color" TEXT NOT NULL,
+    "Description" TEXT NOT NULL,
+    "PerformanceType" TEXT NOT NULL
+);
+2023-12-22 02:43:35.070 -05:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE "Horses" (
+    "HorseId" TEXT NOT NULL CONSTRAINT "PK_Horses" PRIMARY KEY,
+    "RegisteredName" TEXT NOT NULL,
+    "Age" INTEGER NOT NULL,
+    "Color" TEXT NOT NULL,
+    "Description" TEXT NOT NULL,
+    "PerformanceType" TEXT NOT NULL
+);
+2023-12-22 02:43:35.074 -05:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2023-12-22 02:43:35.075 -05:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (1ms).
+2023-12-22 02:43:35.077 -05:00 [DBG] Initialized DbCommand for 'ExecuteNonQuery' (3ms).
+2023-12-22 02:43:35.081 -05:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE "Users" (
+    "UserId" TEXT NOT NULL CONSTRAINT "PK_Users" PRIMARY KEY,
+    "UserName" TEXT NOT NULL,
+    "FirstName" TEXT NOT NULL,
+    "LastName" TEXT NOT NULL,
+    "FullName" TEXT NOT NULL,
+    "StreetAddress" TEXT NOT NULL,
+    "City" TEXT NOT NULL,
+    "State" TEXT NOT NULL,
+    "PostalCode" TEXT NOT NULL,
+    "CellPhone" TEXT NOT NULL,
+    "UserEmail" TEXT NOT NULL
+);
+2023-12-22 02:43:35.087 -05:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE "Users" (
+    "UserId" TEXT NOT NULL CONSTRAINT "PK_Users" PRIMARY KEY,
+    "UserName" TEXT NOT NULL,
+    "FirstName" TEXT NOT NULL,
+    "LastName" TEXT NOT NULL,
+    "FullName" TEXT NOT NULL,
+    "StreetAddress" TEXT NOT NULL,
+    "City" TEXT NOT NULL,
+    "State" TEXT NOT NULL,
+    "PostalCode" TEXT NOT NULL,
+    "CellPhone" TEXT NOT NULL,
+    "UserEmail" TEXT NOT NULL
+);
+2023-12-22 02:43:35.091 -05:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2023-12-22 02:43:35.092 -05:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (1ms).
+2023-12-22 02:43:35.093 -05:00 [DBG] Initialized DbCommand for 'ExecuteNonQuery' (2ms).
+2023-12-22 02:43:35.098 -05:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "__EFMigrationsHistory" ("MigrationId", "ProductVersion")
+VALUES ('20231221092618_InitialCreate', '7.0.14');
+2023-12-22 02:43:35.106 -05:00 [ERR] Failed executing DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "__EFMigrationsHistory" ("MigrationId", "ProductVersion")
+VALUES ('20231221092618_InitialCreate', '7.0.14');
+2023-12-22 02:43:35.114 -05:00 [DBG] Disposing transaction.
+2023-12-22 02:43:35.117 -05:00 [DBG] Closing connection to database 'main' on server ''.
+2023-12-22 02:43:35.118 -05:00 [DBG] Closed connection to database 'main' on server '' (1ms).
+2023-12-22 02:43:35.123 -05:00 [DBG] 'AuctionDbContext' disposed.
+2023-12-22 02:43:35.125 -05:00 [DBG] Disposing connection to database 'main' on server ''.
+2023-12-22 02:43:35.127 -05:00 [DBG] Disposed connection to database 'main' on server '' (1ms).
+2023-12-22 02:54:13.541 -05:00 [DBG] An 'IServiceProvider' was created for internal use by Entity Framework.
+2023-12-22 02:54:13.622 -05:00 [DBG] An additional 'IServiceProvider' was created for internal use by Entity Framework. An existing service provider was not used due to the following configuration changes: configuration changed for 'Core:EnableSensitiveDataLogging'.
+2023-12-22 02:54:14.450 -05:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2023-12-22 02:54:14.695 -05:00 [DBG] Entity Framework Core 7.0.14 initialized 'AuctionDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite:7.0.14' with options: SensitiveDataLoggingEnabled 
+2023-12-22 02:54:14.704 -05:00 [DBG] Creating DbConnection.
+2023-12-22 02:54:14.719 -05:00 [DBG] Created DbConnection. (9ms).
+2023-12-22 02:54:14.724 -05:00 [DBG] 'AuctionDbContext' disposed.
+2023-12-22 02:54:14.737 -05:00 [DBG] Disposing connection to database 'main' on server ''.
+2023-12-22 02:54:14.749 -05:00 [DBG] Disposed connection to database 'main' on server '' (9ms).
+2023-12-22 02:58:16.980 -05:00 [DBG] An 'IServiceProvider' was created for internal use by Entity Framework.
+2023-12-22 02:58:17.068 -05:00 [DBG] An additional 'IServiceProvider' was created for internal use by Entity Framework. An existing service provider was not used due to the following configuration changes: configuration changed for 'Core:EnableSensitiveDataLogging'.
+2023-12-22 02:58:17.625 -05:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2023-12-22 02:58:17.922 -05:00 [DBG] Entity Framework Core 7.0.14 initialized 'AuctionDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite:7.0.14' with options: SensitiveDataLoggingEnabled 
+2023-12-22 02:58:18.273 -05:00 [DBG] 'AuctionDbContext' disposed.
+2023-12-22 03:00:25.256 -05:00 [DBG] An 'IServiceProvider' was created for internal use by Entity Framework.
+2023-12-22 03:00:25.325 -05:00 [DBG] An additional 'IServiceProvider' was created for internal use by Entity Framework. An existing service provider was not used due to the following configuration changes: configuration changed for 'Core:EnableSensitiveDataLogging'.
+2023-12-22 03:00:25.758 -05:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2023-12-22 03:00:25.990 -05:00 [DBG] Entity Framework Core 7.0.14 initialized 'AuctionDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite:7.0.14' with options: SensitiveDataLoggingEnabled 
+2023-12-22 03:00:26.016 -05:00 [DBG] Creating DbConnection.
+2023-12-22 03:00:26.036 -05:00 [DBG] Created DbConnection. (11ms).
+2023-12-22 03:00:26.052 -05:00 [DBG] Migrating using database 'main' on server ''.
+2023-12-22 03:00:26.081 -05:00 [DBG] Creating DbConnection.
+2023-12-22 03:00:26.084 -05:00 [DBG] Created DbConnection. (2ms).
+2023-12-22 03:00:26.090 -05:00 [DBG] Opening connection to database 'main' on server ''.
+2023-12-22 03:00:26.107 -05:00 [DBG] Opened connection to database 'main' on server ''.
+2023-12-22 03:00:26.113 -05:00 [DBG] Disposing connection to database 'main' on server ''.
+2023-12-22 03:00:26.126 -05:00 [DBG] Disposed connection to database 'main' on server '' (2ms).
+2023-12-22 03:00:26.140 -05:00 [DBG] Creating DbCommand for 'ExecuteScalar'.
+2023-12-22 03:00:26.151 -05:00 [DBG] Created DbCommand for 'ExecuteScalar' (4ms).
+2023-12-22 03:00:26.153 -05:00 [DBG] Initialized DbCommand for 'ExecuteScalar' (13ms).
+2023-12-22 03:00:26.155 -05:00 [DBG] Opening connection to database 'main' on server ''.
+2023-12-22 03:00:26.157 -05:00 [DBG] Opened connection to database 'main' on server ''.
+2023-12-22 03:00:26.168 -05:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsHistory' AND "type" = 'table';
+2023-12-22 03:00:26.199 -05:00 [INF] Executed DbCommand (28ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsHistory' AND "type" = 'table';
+2023-12-22 03:00:26.206 -05:00 [DBG] Closing connection to database 'main' on server ''.
+2023-12-22 03:00:26.209 -05:00 [DBG] Closed connection to database 'main' on server '' (2ms).
+2023-12-22 03:00:26.211 -05:00 [DBG] Creating DbConnection.
+2023-12-22 03:00:26.212 -05:00 [DBG] Created DbConnection. (1ms).
+2023-12-22 03:00:26.213 -05:00 [DBG] Opening connection to database 'main' on server ''.
+2023-12-22 03:00:26.215 -05:00 [DBG] Opened connection to database 'main' on server ''.
+2023-12-22 03:00:26.217 -05:00 [DBG] Disposing connection to database 'main' on server ''.
+2023-12-22 03:00:26.218 -05:00 [DBG] Disposed connection to database 'main' on server '' (1ms).
+2023-12-22 03:00:26.349 -05:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2023-12-22 03:00:26.350 -05:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (1ms).
+2023-12-22 03:00:26.351 -05:00 [DBG] Initialized DbCommand for 'ExecuteNonQuery' (2ms).
+2023-12-22 03:00:26.353 -05:00 [DBG] Opening connection to database 'main' on server ''.
+2023-12-22 03:00:26.354 -05:00 [DBG] Opened connection to database 'main' on server ''.
+2023-12-22 03:00:26.357 -05:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE "__EFMigrationsHistory" (
+    "MigrationId" TEXT NOT NULL CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY,
+    "ProductVersion" TEXT NOT NULL
+);
+2023-12-22 03:00:26.362 -05:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE "__EFMigrationsHistory" (
+    "MigrationId" TEXT NOT NULL CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY,
+    "ProductVersion" TEXT NOT NULL
+);
+2023-12-22 03:00:26.365 -05:00 [DBG] Closing connection to database 'main' on server ''.
+2023-12-22 03:00:26.367 -05:00 [DBG] Closed connection to database 'main' on server '' (1ms).
+2023-12-22 03:00:26.374 -05:00 [DBG] Creating DbConnection.
+2023-12-22 03:00:26.375 -05:00 [DBG] Created DbConnection. (1ms).
+2023-12-22 03:00:26.377 -05:00 [DBG] Opening connection to database 'main' on server ''.
+2023-12-22 03:00:26.378 -05:00 [DBG] Opened connection to database 'main' on server ''.
+2023-12-22 03:00:26.381 -05:00 [DBG] Disposing connection to database 'main' on server ''.
+2023-12-22 03:00:26.383 -05:00 [DBG] Disposed connection to database 'main' on server '' (1ms).
+2023-12-22 03:00:26.385 -05:00 [DBG] Creating DbCommand for 'ExecuteScalar'.
+2023-12-22 03:00:26.387 -05:00 [DBG] Created DbCommand for 'ExecuteScalar' (1ms).
+2023-12-22 03:00:26.392 -05:00 [DBG] Initialized DbCommand for 'ExecuteScalar' (6ms).
+2023-12-22 03:00:26.394 -05:00 [DBG] Opening connection to database 'main' on server ''.
+2023-12-22 03:00:26.396 -05:00 [DBG] Opened connection to database 'main' on server ''.
+2023-12-22 03:00:26.398 -05:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsHistory' AND "type" = 'table';
+2023-12-22 03:00:26.401 -05:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsHistory' AND "type" = 'table';
+2023-12-22 03:00:26.404 -05:00 [DBG] Closing connection to database 'main' on server ''.
+2023-12-22 03:00:26.406 -05:00 [DBG] Closed connection to database 'main' on server '' (2ms).
+2023-12-22 03:00:26.423 -05:00 [INF] Applying migration '20231222075818_InitialCreate'.
+2023-12-22 03:00:26.449 -05:00 [DBG] Opening connection to database 'main' on server ''.
+2023-12-22 03:00:26.451 -05:00 [DBG] Opened connection to database 'main' on server ''.
+2023-12-22 03:00:26.454 -05:00 [DBG] Beginning transaction with isolation level 'Unspecified'.
+2023-12-22 03:00:26.459 -05:00 [DBG] Began transaction with isolation level 'Serializable'.
+2023-12-22 03:00:26.461 -05:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2023-12-22 03:00:26.462 -05:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (1ms).
+2023-12-22 03:00:26.464 -05:00 [DBG] Initialized DbCommand for 'ExecuteNonQuery' (3ms).
+2023-12-22 03:00:26.466 -05:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE "Horses" (
+    "HorseId" TEXT NOT NULL CONSTRAINT "PK_Horses" PRIMARY KEY,
+    "RegisteredName" TEXT NOT NULL,
+    "Age" INTEGER NOT NULL,
+    "Color" TEXT NOT NULL,
+    "Description" TEXT NOT NULL,
+    "PerformanceType" TEXT NOT NULL
+);
+2023-12-22 03:00:26.471 -05:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE "Horses" (
+    "HorseId" TEXT NOT NULL CONSTRAINT "PK_Horses" PRIMARY KEY,
+    "RegisteredName" TEXT NOT NULL,
+    "Age" INTEGER NOT NULL,
+    "Color" TEXT NOT NULL,
+    "Description" TEXT NOT NULL,
+    "PerformanceType" TEXT NOT NULL
+);
+2023-12-22 03:00:26.475 -05:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2023-12-22 03:00:26.477 -05:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (1ms).
+2023-12-22 03:00:26.479 -05:00 [DBG] Initialized DbCommand for 'ExecuteNonQuery' (3ms).
+2023-12-22 03:00:26.480 -05:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE "Users" (
+    "UserId" TEXT NOT NULL CONSTRAINT "PK_Users" PRIMARY KEY,
+    "UserName" TEXT NOT NULL,
+    "FirstName" TEXT NOT NULL,
+    "LastName" TEXT NOT NULL,
+    "FullName" TEXT NOT NULL,
+    "StreetAddress" TEXT NOT NULL,
+    "City" TEXT NOT NULL,
+    "State" TEXT NOT NULL,
+    "PostalCode" TEXT NOT NULL,
+    "CellPhone" TEXT NOT NULL,
+    "UserEmail" TEXT NOT NULL
+);
+2023-12-22 03:00:26.484 -05:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE "Users" (
+    "UserId" TEXT NOT NULL CONSTRAINT "PK_Users" PRIMARY KEY,
+    "UserName" TEXT NOT NULL,
+    "FirstName" TEXT NOT NULL,
+    "LastName" TEXT NOT NULL,
+    "FullName" TEXT NOT NULL,
+    "StreetAddress" TEXT NOT NULL,
+    "City" TEXT NOT NULL,
+    "State" TEXT NOT NULL,
+    "PostalCode" TEXT NOT NULL,
+    "CellPhone" TEXT NOT NULL,
+    "UserEmail" TEXT NOT NULL
+);
+2023-12-22 03:00:26.488 -05:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2023-12-22 03:00:26.490 -05:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (1ms).
+2023-12-22 03:00:26.492 -05:00 [DBG] Initialized DbCommand for 'ExecuteNonQuery' (3ms).
+2023-12-22 03:00:26.493 -05:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "__EFMigrationsHistory" ("MigrationId", "ProductVersion")
+VALUES ('20231222075818_InitialCreate', '7.0.14');
+2023-12-22 03:00:26.499 -05:00 [ERR] Failed executing DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "__EFMigrationsHistory" ("MigrationId", "ProductVersion")
+VALUES ('20231222075818_InitialCreate', '7.0.14');
+2023-12-22 03:00:26.504 -05:00 [DBG] Disposing transaction.
+2023-12-22 03:00:26.507 -05:00 [DBG] Closing connection to database 'main' on server ''.
+2023-12-22 03:00:26.508 -05:00 [DBG] Closed connection to database 'main' on server '' (1ms).
+2023-12-22 03:00:26.513 -05:00 [DBG] 'AuctionDbContext' disposed.
+2023-12-22 03:00:26.515 -05:00 [DBG] Disposing connection to database 'main' on server ''.
+2023-12-22 03:00:26.517 -05:00 [DBG] Disposed connection to database 'main' on server '' (2ms).
+2023-12-22 04:13:32.738 -05:00 [DBG] An 'IServiceProvider' was created for internal use by Entity Framework.
+2023-12-22 04:13:32.824 -05:00 [DBG] An additional 'IServiceProvider' was created for internal use by Entity Framework. An existing service provider was not used due to the following configuration changes: configuration changed for 'Core:EnableSensitiveDataLogging'.
+2023-12-22 04:13:33.394 -05:00 [WRN] Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+2023-12-22 04:13:33.716 -05:00 [DBG] Entity Framework Core 7.0.14 initialized 'AuctionDbContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite:7.0.14' with options: SensitiveDataLoggingEnabled 
+2023-12-22 04:13:33.742 -05:00 [DBG] Creating DbConnection.
+2023-12-22 04:13:33.757 -05:00 [DBG] Created DbConnection. (9ms).
+2023-12-22 04:13:33.769 -05:00 [DBG] Migrating using database 'main' on server ''.
+2023-12-22 04:13:33.803 -05:00 [DBG] Creating DbConnection.
+2023-12-22 04:13:33.805 -05:00 [DBG] Created DbConnection. (1ms).
+2023-12-22 04:13:33.809 -05:00 [DBG] Opening connection to database 'main' on server ''.
+2023-12-22 04:13:33.823 -05:00 [DBG] Opened connection to database 'main' on server ''.
+2023-12-22 04:13:33.832 -05:00 [DBG] Disposing connection to database 'main' on server ''.
+2023-12-22 04:13:33.845 -05:00 [DBG] Disposed connection to database 'main' on server '' (3ms).
+2023-12-22 04:13:33.861 -05:00 [DBG] Creating DbCommand for 'ExecuteScalar'.
+2023-12-22 04:13:33.876 -05:00 [DBG] Created DbCommand for 'ExecuteScalar' (7ms).
+2023-12-22 04:13:33.880 -05:00 [DBG] Initialized DbCommand for 'ExecuteScalar' (19ms).
+2023-12-22 04:13:33.882 -05:00 [DBG] Opening connection to database 'main' on server ''.
+2023-12-22 04:13:33.884 -05:00 [DBG] Opened connection to database 'main' on server ''.
+2023-12-22 04:13:33.901 -05:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsHistory' AND "type" = 'table';
+2023-12-22 04:13:33.938 -05:00 [INF] Executed DbCommand (35ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsHistory' AND "type" = 'table';
+2023-12-22 04:13:33.947 -05:00 [DBG] Closing connection to database 'main' on server ''.
+2023-12-22 04:13:33.951 -05:00 [DBG] Closed connection to database 'main' on server '' (3ms).
+2023-12-22 04:13:33.953 -05:00 [DBG] Creating DbConnection.
+2023-12-22 04:13:33.954 -05:00 [DBG] Created DbConnection. (1ms).
+2023-12-22 04:13:33.956 -05:00 [DBG] Opening connection to database 'main' on server ''.
+2023-12-22 04:13:33.958 -05:00 [DBG] Opened connection to database 'main' on server ''.
+2023-12-22 04:13:33.959 -05:00 [DBG] Disposing connection to database 'main' on server ''.
+2023-12-22 04:13:33.963 -05:00 [DBG] Disposed connection to database 'main' on server '' (3ms).
+2023-12-22 04:13:34.123 -05:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2023-12-22 04:13:34.125 -05:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (1ms).
+2023-12-22 04:13:34.126 -05:00 [DBG] Initialized DbCommand for 'ExecuteNonQuery' (3ms).
+2023-12-22 04:13:34.128 -05:00 [DBG] Opening connection to database 'main' on server ''.
+2023-12-22 04:13:34.130 -05:00 [DBG] Opened connection to database 'main' on server ''.
+2023-12-22 04:13:34.132 -05:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE "__EFMigrationsHistory" (
+    "MigrationId" TEXT NOT NULL CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY,
+    "ProductVersion" TEXT NOT NULL
+);
+2023-12-22 04:13:34.138 -05:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE "__EFMigrationsHistory" (
+    "MigrationId" TEXT NOT NULL CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY,
+    "ProductVersion" TEXT NOT NULL
+);
+2023-12-22 04:13:34.142 -05:00 [DBG] Closing connection to database 'main' on server ''.
+2023-12-22 04:13:34.145 -05:00 [DBG] Closed connection to database 'main' on server '' (2ms).
+2023-12-22 04:13:34.149 -05:00 [DBG] Creating DbConnection.
+2023-12-22 04:13:34.150 -05:00 [DBG] Created DbConnection. (1ms).
+2023-12-22 04:13:34.152 -05:00 [DBG] Opening connection to database 'main' on server ''.
+2023-12-22 04:13:34.154 -05:00 [DBG] Opened connection to database 'main' on server ''.
+2023-12-22 04:13:34.156 -05:00 [DBG] Disposing connection to database 'main' on server ''.
+2023-12-22 04:13:34.158 -05:00 [DBG] Disposed connection to database 'main' on server '' (1ms).
+2023-12-22 04:13:34.160 -05:00 [DBG] Creating DbCommand for 'ExecuteScalar'.
+2023-12-22 04:13:34.162 -05:00 [DBG] Created DbCommand for 'ExecuteScalar' (1ms).
+2023-12-22 04:13:34.164 -05:00 [DBG] Initialized DbCommand for 'ExecuteScalar' (3ms).
+2023-12-22 04:13:34.166 -05:00 [DBG] Opening connection to database 'main' on server ''.
+2023-12-22 04:13:34.167 -05:00 [DBG] Opened connection to database 'main' on server ''.
+2023-12-22 04:13:34.169 -05:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsHistory' AND "type" = 'table';
+2023-12-22 04:13:34.172 -05:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "name" = '__EFMigrationsHistory' AND "type" = 'table';
+2023-12-22 04:13:34.175 -05:00 [DBG] Closing connection to database 'main' on server ''.
+2023-12-22 04:13:34.176 -05:00 [DBG] Closed connection to database 'main' on server '' (1ms).
+2023-12-22 04:13:34.199 -05:00 [INF] Applying migration '20231222075818_InitialCreate'.
+2023-12-22 04:13:34.232 -05:00 [DBG] Opening connection to database 'main' on server ''.
+2023-12-22 04:13:34.234 -05:00 [DBG] Opened connection to database 'main' on server ''.
+2023-12-22 04:13:34.238 -05:00 [DBG] Beginning transaction with isolation level 'Unspecified'.
+2023-12-22 04:13:34.246 -05:00 [DBG] Began transaction with isolation level 'Serializable'.
+2023-12-22 04:13:34.249 -05:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2023-12-22 04:13:34.250 -05:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (1ms).
+2023-12-22 04:13:34.253 -05:00 [DBG] Initialized DbCommand for 'ExecuteNonQuery' (4ms).
+2023-12-22 04:13:34.254 -05:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE "Horses" (
+    "HorseId" TEXT NOT NULL CONSTRAINT "PK_Horses" PRIMARY KEY,
+    "RegisteredName" TEXT NOT NULL,
+    "Age" INTEGER NOT NULL,
+    "Color" TEXT NOT NULL,
+    "Description" TEXT NOT NULL,
+    "PerformanceType" TEXT NOT NULL
+);
+2023-12-22 04:13:34.258 -05:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE "Horses" (
+    "HorseId" TEXT NOT NULL CONSTRAINT "PK_Horses" PRIMARY KEY,
+    "RegisteredName" TEXT NOT NULL,
+    "Age" INTEGER NOT NULL,
+    "Color" TEXT NOT NULL,
+    "Description" TEXT NOT NULL,
+    "PerformanceType" TEXT NOT NULL
+);
+2023-12-22 04:13:34.265 -05:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2023-12-22 04:13:34.266 -05:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (1ms).
+2023-12-22 04:13:34.269 -05:00 [DBG] Initialized DbCommand for 'ExecuteNonQuery' (4ms).
+2023-12-22 04:13:34.270 -05:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE "Users" (
+    "UserId" TEXT NOT NULL CONSTRAINT "PK_Users" PRIMARY KEY,
+    "UserName" TEXT NOT NULL,
+    "FirstName" TEXT NOT NULL,
+    "LastName" TEXT NOT NULL,
+    "FullName" TEXT NOT NULL,
+    "StreetAddress" TEXT NOT NULL,
+    "City" TEXT NOT NULL,
+    "State" TEXT NOT NULL,
+    "PostalCode" TEXT NOT NULL,
+    "CellPhone" TEXT NOT NULL,
+    "UserEmail" TEXT NOT NULL
+);
+2023-12-22 04:13:34.274 -05:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE "Users" (
+    "UserId" TEXT NOT NULL CONSTRAINT "PK_Users" PRIMARY KEY,
+    "UserName" TEXT NOT NULL,
+    "FirstName" TEXT NOT NULL,
+    "LastName" TEXT NOT NULL,
+    "FullName" TEXT NOT NULL,
+    "StreetAddress" TEXT NOT NULL,
+    "City" TEXT NOT NULL,
+    "State" TEXT NOT NULL,
+    "PostalCode" TEXT NOT NULL,
+    "CellPhone" TEXT NOT NULL,
+    "UserEmail" TEXT NOT NULL
+);
+2023-12-22 04:13:34.280 -05:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2023-12-22 04:13:34.282 -05:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (2ms).
+2023-12-22 04:13:34.284 -05:00 [DBG] Initialized DbCommand for 'ExecuteNonQuery' (4ms).
+2023-12-22 04:13:34.285 -05:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "__EFMigrationsHistory" ("MigrationId", "ProductVersion")
+VALUES ('20231222075818_InitialCreate', '7.0.14');
+2023-12-22 04:13:34.292 -05:00 [ERR] Failed executing DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "__EFMigrationsHistory" ("MigrationId", "ProductVersion")
+VALUES ('20231222075818_InitialCreate', '7.0.14');
+2023-12-22 04:13:34.301 -05:00 [DBG] Disposing transaction.
+2023-12-22 04:13:34.303 -05:00 [DBG] Closing connection to database 'main' on server ''.
+2023-12-22 04:13:34.305 -05:00 [DBG] Closed connection to database 'main' on server '' (1ms).
+2023-12-22 04:13:34.309 -05:00 [DBG] 'AuctionDbContext' disposed.
+2023-12-22 04:13:34.311 -05:00 [DBG] Disposing connection to database 'main' on server ''.
+2023-12-22 04:13:34.314 -05:00 [DBG] Disposed connection to database 'main' on server '' (1ms).

@@ -1,21 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using Microsoft.Extensions.Logging;
 using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace HorseAuction
 {
     public class AuthenticationService
     {
         private readonly AuctionDbContext dbContext;
+        private readonly ILogger<AuthenticationService> logger;
 
-        public AuthenticationService(AuctionDbContext dbContext)
+        public AuthenticationService(AuctionDbContext dbContext, ILogger<AuthenticationService> logger)
         {
             this.dbContext = dbContext;
+            this.logger = logger;
         }
-
         public User AuthenticateUser()
         {
             User authenticatedUser = null;
@@ -29,7 +26,7 @@ namespace HorseAuction
 
                 if (authenticatedUser != null)
                 {
-                    Console.WriteLine("User not found. Please enter a valid username.");
+                    LogWarningAndConsole("User not found. Please enter a valid username.");
                 }
 
             } while (authenticatedUser == null);
@@ -38,11 +35,25 @@ namespace HorseAuction
 
         private User GetUserByUsername(string username)
         {
-            using (var context = new AuctionDbContext())
+            try
             {
-                return context.Users.SingleOrDefault(u => u.UserName.ToLower() == username.ToLower());
+                return dbContext.Users.SingleOrDefault(u => u.UserName.ToLower() == username.ToLower());
+            }
+            catch (Exception ex)
+            {
+                LogErrorAndConsole($"Error while retrieving user by username: {ex.Message}");
+                return null;
             }
         }
+        private void LogErrorAndConsole(string errorMessage, [CallerMemberName] string methodName = "")
+        {
+            Console.WriteLine(errorMessage);
+            logger.LogError($"Error in {methodName}: {errorMessage}");
+        }
+        private void LogWarningAndConsole(string warningMessage, [CallerMemberName] string methodName = "")
+        {
+            Console.WriteLine(warningMessage);
+            logger.LogWarning($"Warning in {methodName}: {warningMessage}");
+        }
     }
-
 }

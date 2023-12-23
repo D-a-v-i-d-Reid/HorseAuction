@@ -1,13 +1,8 @@
 ﻿using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Data.Entity;
-using System.Data.Entity.Infrastructure;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using System.Runtime.CompilerServices;
 
 namespace HorseAuction
 {
@@ -18,8 +13,8 @@ namespace HorseAuction
 
         public UserRegistrationService(AuctionDbContext dbContext, ILogger<UserRegistrationService> logger)
         {
-            this.dbContext = dbContext;
-            this.logger = logger;
+            this.dbContext = dbContext ?? throw new ArgumentNullException(nameof(dbContext));
+            this.logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
         public void RegisterUser()
@@ -34,11 +29,11 @@ namespace HorseAuction
                 //Check if the username is already in the database
                 if (UserNameIsPersisted(userName) || UserNameIsTakenInSession(userName))
                 {
-                    Console.WriteLine("UserName is already taken. Please choose a differnt username.");
+                    LogWarningAndConsole("UserName is already taken. Please choose a differnt username.");
                 }
                 else if (userName.Length < 3)
                 {
-                    Console.WriteLine("UserName must be at least 3 characters long. Please enter a valid username.");
+                    LogWarningAndConsole("UserName must be at least 3 characters long. Please enter a valid username.");
                 }
                 else
                 {
@@ -56,28 +51,43 @@ namespace HorseAuction
                             dbContext.Users.Add(user);
                             dbContext.SaveChanges();
 
-                            Console.WriteLine($"User registered successfully with UserID: {user.UserID}");
-                            Console.WriteLine($"Username: {user.UserName}");
-                            Console.WriteLine($"Name: {user.FullName}");
-                            Console.WriteLine($"Address: {user.StreetAddress}, {user.City}, {user.State} {user.PostalCode}");
-                            Console.WriteLine($"Phone: {user.CellPhone}");
-                            Console.WriteLine($"Email: {user.UserEmail}");
+                            LogInfoAndConsole($"User registered successfully with UserID: {user.UserId}");
+                            LogInfoAndConsole($"Username: {user.UserName}");
+                            LogInfoAndConsole($"Name: {user.FullName}");
+                            LogInfoAndConsole($"Address: {user.StreetAddress}, {user.City}, {user.State} {user.PostalCode}");
+                            LogInfoAndConsole($"Phone: {user.CellPhone}");
+                            LogInfoAndConsole($"Email: {user.UserEmail}");
                         }
                         catch (DbUpdateException ex)
                         {
-                            Console.WriteLine($"An error occurred while saving the user: {ex.Message}");
-                            logger.LogError($"Error in RegisterUser method: {ex.Message}");
+                            LogErrorAndConsole($"An error occurred while saving the user: {ex.Message}");
+                            
                         }
                     }
                     else
                     {
                         foreach (var validationResult in validationResults)
                         {
-                            Console.WriteLine(validationResult.ErrorMessage);
+                            LogWarningAndConsole(validationResult.ErrorMessage);
                         }
                     }
                 }
             } while (user == null);
+        }
+        private void LogErrorAndConsole(string errorMessage)
+        {
+            Console.Write(errorMessage);
+            logger.LogError(errorMessage);
+        }
+        private void LogInfoAndConsole(string infoMessage)
+        {
+            Console.WriteLine(infoMessage);
+            logger.LogInformation(infoMessage);
+        }
+        private void LogWarningAndConsole(string warningMessage)
+        {
+            Console.WriteLine(warningMessage);
+            logger.LogWarning(warningMessage);
         }
         private bool UserNameIsPersisted(string userName)
         {
@@ -141,7 +151,7 @@ namespace HorseAuction
         {
             return new User
             {
-                UserID = Guid.NewGuid(),
+                UserId = Guid.NewGuid(),
                 UserName = userInput.UserName,
                 FirstName = CapitalizeEachWord(userInput.FirstName),
                 LastName = CapitalizeEachWord(userInput.LastName),

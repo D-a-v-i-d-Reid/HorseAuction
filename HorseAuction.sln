@@ -11,13 +11,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		AuctionDbContext.cs = AuctionDbContext.cs
 		Bid.cs = Bid.cs
 		Bidder.cs = Bidder.cs
-		Class1.cs = Class1.cs
-		Class2.cs = Class2.cs
-		Class3.cs = Class3.cs
-		Class4.cs = Class4.cs
 	EndProjectSection
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HorseAuction.Test", "HorseAuction.Test\HorseAuction.Test.csproj", "{018F7B84-FECE-4442-B272-D1C4EFD80B2F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +23,6 @@ Global
 		{55A377D2-279A-49EA-B252-180530BB3146}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{55A377D2-279A-49EA-B252-180530BB3146}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{55A377D2-279A-49EA-B252-180530BB3146}.Release|Any CPU.Build.0 = Release|Any CPU
-		{018F7B84-FECE-4442-B272-D1C4EFD80B2F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{018F7B84-FECE-4442-B272-D1C4EFD80B2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{018F7B84-FECE-4442-B272-D1C4EFD80B2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{018F7B84-FECE-4442-B272-D1C4EFD80B2F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

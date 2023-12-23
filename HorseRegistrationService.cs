@@ -2,11 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.Design;
-using System.Data.Entity.Infrastructure;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 namespace HorseAuction
 {
@@ -21,8 +17,8 @@ namespace HorseAuction
             ILogger<HorseRegistrationService> logger,
             AuthenticationService authentication)
         {
-            this.dbContext = dbContext;
-            this.logger = logger;
+            this.dbContext = dbContext ?? throw new ArgumentNullException(nameof(dbContext));
+            this.logger = logger ?? throw new ArgumentNullException(nameof(logger));
             this.authenticationService = authentication;
         }
         public void RegisterHorse()
@@ -118,7 +114,30 @@ namespace HorseAuction
         }
         private bool HorseNameIsPersisted(string horseName)
         {
-            return dbContext.Horses.Any(h=>h.RegisteredName.ToLower() == horseName.ToLower());
+            try
+            {
+                return dbContext.Horses.Any(h => h.RegisteredName.ToLower() == horseName.ToLower());
+            }
+            catch (Exception ex)
+            {
+                logger.LogError($"Error checking if horse name is persisted: {ex.Message}");
+                return false;
+            }
+        }
+        private void LogErrorandConsole(string errorMessage)
+        {
+            Console.WriteLine(errorMessage);
+            logger.LogError(errorMessage);
+        }
+        private void LogInfoAndConsole(string infoMessage)
+        {
+            Console.WriteLine(infoMessage);
+            logger.LogInformation(infoMessage);
+        }
+        private void LogWarningandConsole(string warningMessage)
+        {
+            Console.WriteLine(warningMessage);
+            logger.LogWarning(warningMessage);
         }
         private HorseInputModel GetHorseInput(string registeredName)
         {
@@ -200,15 +219,15 @@ namespace HorseAuction
                             Console.Write("Enter new Horse Color: ");
                             horse.Color = Console.ReadLine();
                             break;
-                            case 4:
+                        case 4:
                             Console.Write("Enter new Horse Description: ");
                             horse.Description = Console.ReadLine();
                             break;
-                            case 5:
+                        case 5:
                             Console.Write("Enter new Horse Performance Type: ");
                             horse.PerformanceType = Console.ReadLine();
-                            break; 
-                            case 6:
+                            break;
+                        case 6:
                             Console.WriteLine("Edit Canceled.");
                             return;
                         default:

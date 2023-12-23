@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HorseAuction;
+using System;
 using System.Collections.Generic;
 
 public class Horse
@@ -14,7 +15,5 @@ public class Horse
     {
      HorseId = Guid.NewGuid();
     }
-   
-    
-    
+   // public List<AuctionHouse> AuctionHouses { get; set; }
 }

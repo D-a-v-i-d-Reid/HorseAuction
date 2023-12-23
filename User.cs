@@ -8,7 +8,7 @@ namespace HorseAuction
 {
     public class User
     {
-        public Guid UserID { get; set; }
+        public Guid UserId { get; set; }
         public string UserName { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
@@ -20,6 +20,9 @@ namespace HorseAuction
         public string CellPhone { get; set; }
         public string UserEmail { get; set; }
 
-
+        // Navigation properties to represent the auctions where the user is a seller or buyer
+     //   public List<AuctionHouse> SellerAuctions { get; set; }
+     //   public List<AuctionHouse> BuyerAuctions { get; set; }
+     //   public List<AuctionHouse> AuctionHouses { get; set; }
     }
 }
