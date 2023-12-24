@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
+
 
 namespace HorseAuction
 {
@@ -17,14 +17,6 @@ namespace HorseAuction
         public DbSet<Horse> Horses { get; set; }
         public DbSet<User> Users { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            // Provide the connection string directly
-            var connectionString = "Data Source=AuctionData.db";
-            optionsBuilder.UseSqlite(connectionString);
-
-            _logger.LogInformation("Configuring DbContext with connection string: {ConnectionString}", connectionString);
-        }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             // Define your entity configurations here if needed

@@ -1,28 +1,23 @@
-﻿using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
 using Serilog;
-using System;
-using System.IO;
-using System.Reflection;
 
 namespace HorseAuction
 {
     public class Program
     {
-        static void Main(string[] args)
-        {
-
+        public static void Main()
+        { 
             //Specify configuration values
             var connectionString = "Data Source=AuctionData.db";
             var logFilePath = "AuctionLogFile.txt";
 
             // Set up logging
             Log.Logger = new LoggerConfiguration()
-                .MinimumLevel.Debug()
-                .WriteTo.File(Path.Combine(AppContext.BaseDirectory, logFilePath), rollingInterval: RollingInterval.Day)
-                .CreateLogger();
+                    .MinimumLevel.Debug()
+                    .WriteTo.File(Path.Combine(AppContext.BaseDirectory, logFilePath), rollingInterval: RollingInterval.Day)
+                    .CreateLogger();
 
             // Set up database options
             var serviceProvider = new ServiceCollection()
@@ -40,6 +35,9 @@ namespace HorseAuction
                     auctionDbContext.Database.Migrate();
                 }
             }
+            // Create AuctionDbContext using the DbContextOptions
+            using var dbContext = serviceProvider.GetRequiredService<AuctionDbContext>();
+
 
             // Create instances of services with ILogger injected
             var userRegistrationService = new UserRegistrationService(serviceProvider.GetRequiredService<AuctionDbContext>(), serviceProvider.GetRequiredService<ILogger<UserRegistrationService>>());
@@ -97,87 +95,12 @@ namespace HorseAuction
 
 
 
-                    ////Once registered...Proceed to auction menu
-                    //bool exitProgram = false;
 
-
-                    //while (!exitProgram)
-                    //{
-                    //    Console.WriteLine();
-                    //    Console.WriteLine("1. View Horses");
-                    //    Console.WriteLine("2. View Horse Details");
-                    //    Console.WriteLine("3. Place Bid");
-                    //    Console.WriteLine("4. Exit");
-                    //    Console.WriteLine("Enter Your Choice:  ");
-
-                    //    if (int.TryParse(Console.ReadLine(), out int choice))
-                    //    {
-
-
-                    //        switch (choice)
-                    //        {
-                    //            case 1:
-                    //                auction.DisplayHorses();
-                    //                break;
-
-                    //            case 2:
-                    //                Console.Write("Enter the Horse ID to view details:  ");
-                    //                if (int.TryParse(Console.ReadLine(), out int horseId))
-                    //                {
-                    //                    auction.ViewHorseDetails(horseId);
-
-                    //                }
-                    //                else
-                    //                {
-                    //                    Console.WriteLine("Invalid input. Please enter a number.");
-                    //                }
-                    //                break;
-
-                    //            case 3:
-                    //                Console.Write("Enter the HorseID to Place a Bid:  ");
-                    //                if (int.TryParse(Console.ReadLine(), out horseId))
-                    //                {
-                    //                    string bidderName = Auction.GetBidderUsername();
-                    //                    int bidderId = auction.RegisterBidder(bidderName);
-
-
-                    //                    Console.Write("Enter the Bid Amount ");
-                    //                    if (decimal.TryParse(Console.ReadLine(), out decimal bidAmount))
-                    //                    {
-                    //                        auction.Placebid(horseId, bidAmount, bidderId, bidderName);
-                    //                    }
-                    //                    else
-                    //                    {
-                    //                        Console.WriteLine("Invalid bid amount. Please enter a valid number.");
-                    //                    }
-
-
-                    //                }
-                    //                else
-                    //                {
-                    //                    Console.WriteLine("Invalid Input. Please enter a number.");
-                    //                }
-                    //                break;
-                    //            case 4:
-                    //                exitProgram = true;
-                    //                Console.WriteLine("Exiting the program.");
-                    //                break;
-                    //            default:
-                    //                Console.WriteLine("Invalid Choice. Please enter a number between 1 and 4.");
-                    //                break;
-                    //        }
-                    //    }
-                    //    else
-                    //    {
-                    //        Console.WriteLine("Invalid Input. Please enter a number.");
-                    //    }
-                    //    Console.WriteLine();
-                    //}
             }
+
         }
     }
+
 }
-
-
 
 

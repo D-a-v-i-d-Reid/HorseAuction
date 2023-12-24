@@ -56,7 +56,7 @@ namespace HorseAuction
                     var validationResults = new List<ValidationResult>();
                     if (ValidateHorseInput(horseInput, validationResults))
                     {
-                        horse = MapToDomainModel(horseInput);
+                        horse = MapToDomainModel(horseInput, authenticatedUser.UserName);
 
                         try
                         {
@@ -169,7 +169,7 @@ namespace HorseAuction
         {
             return Validator.TryValidateObject(horseInput, new ValidationContext(horseInput), validationResults, validateAllProperties: true);
         }
-        private Horse MapToDomainModel(HorseInputModel horseInput)
+        private Horse MapToDomainModel(HorseInputModel horseInput, string sellerUsername )
         {
             return new Horse
             {
@@ -178,7 +178,8 @@ namespace HorseAuction
                 Age = horseInput.Age,
                 Color = horseInput.Color,
                 Description = horseInput.Description,
-                PerformanceType = horseInput.PerformanceType
+                PerformanceType = horseInput.PerformanceType,
+                Seller = sellerUsername
             };
         }
         public void EditHorse()

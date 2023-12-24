@@ -10,7 +10,7 @@ public class Horse
     public string Color { get; set; } = string.Empty;
     public string Description { get; set; } = string.Empty;
     public string PerformanceType { get; set; } = string.Empty;
-    
+    public string Seller {  get; set; } = string.Empty;
     public Horse() 
     {
      HorseId = Guid.NewGuid();

@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using System.Runtime.CompilerServices;
 
 namespace HorseAuction
@@ -20,15 +21,14 @@ namespace HorseAuction
             do
             {
                 Console.Write("Enter your UserName: ");
-                string username = Console.ReadLine();
+                string username = Console.ReadLine().Trim();
 
                 authenticatedUser = GetUserByUsername(username);
 
-                if (authenticatedUser != null)
+                if (authenticatedUser == null)
                 {
                     LogWarningAndConsole("User not found. Please enter a valid username.");
                 }
-
             } while (authenticatedUser == null);
             return authenticatedUser;
         }
@@ -37,7 +37,17 @@ namespace HorseAuction
         {
             try
             {
-                return dbContext.Users.SingleOrDefault(u => u.UserName.ToLower() == username.ToLower());
+                var lowercaseUsername = username.ToLower();
+
+                var user = dbContext.Users
+            .AsEnumerable()  
+            .FirstOrDefault(u => u.UserName.Trim().ToLower() == lowercaseUsername);
+
+                if (user == null)
+                {
+                    logger.LogInformation($"User not found for username: {username}");
+                }
+                return user;
             }
             catch (Exception ex)
             {
@@ -50,6 +60,7 @@ namespace HorseAuction
             Console.WriteLine(errorMessage);
             logger.LogError($"Error in {methodName}: {errorMessage}");
         }
+
         private void LogWarningAndConsole(string warningMessage, [CallerMemberName] string methodName = "")
         {
             Console.WriteLine(warningMessage);
