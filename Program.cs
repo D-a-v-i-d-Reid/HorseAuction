@@ -42,7 +42,7 @@ namespace HorseAuction
             // Create instances of services with ILogger injected
             var userRegistrationService = new UserRegistrationService(serviceProvider.GetRequiredService<AuctionDbContext>(), serviceProvider.GetRequiredService<ILogger<UserRegistrationService>>());
             var authenticationService = new AuthenticationService(serviceProvider.GetRequiredService<AuctionDbContext>(), serviceProvider.GetRequiredService<ILogger<AuthenticationService>>());
-            var horseRegistrationService = new HorseRegistrationService(serviceProvider.GetRequiredService<AuctionDbContext>(), serviceProvider.GetRequiredService<ILogger<HorseRegistrationService>>(), authenticationService);
+            var horseManagementService = new HorseManagementService(serviceProvider.GetRequiredService<AuctionDbContext>(), serviceProvider.GetRequiredService<ILogger<HorseManagementService>>(), authenticationService);
 
 
 
@@ -69,7 +69,7 @@ namespace HorseAuction
 
                 case "2":
                     //Horse Registration
-                    horseRegistrationService.RegisterHorse();
+                    horseManagementService.RunHorseManagementMenu();
                     break;
 
 
