@@ -187,7 +187,7 @@ namespace HorseAuction
             Console.Write("Enter Horse Registered Name To Edit: ");
             string registeredName = Console.ReadLine();
 
-            var horse = dbContext.Horses.FirstOrDefault(h => h.RegisteredName.Equals(registeredName, StringComparison.OrdinalIgnoreCase));
+            var horse = dbContext.Horses.FirstOrDefault(h => h.RegisteredName == registeredName);
 
             if (horse != null)
             {
@@ -253,7 +253,7 @@ namespace HorseAuction
             Console.Write("Enter Horse Registered Name to delete: ");
             string registeredName = Console.ReadLine();
 
-            var horse = dbContext.Horses.FirstOrDefault(h => h.RegisteredName.Equals(registeredName, StringComparison.OrdinalIgnoreCase));
+            var horse = dbContext.Horses.FirstOrDefault(h => h.RegisteredName == registeredName);
 
             if (horse != null)
             {
