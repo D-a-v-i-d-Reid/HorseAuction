@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -27,6 +28,7 @@ namespace HorseAuction
 
         public void RunHorseManagementMenu()
         {
+            Console.Clear();
             Console.WriteLine("Lazy R Quarter Horse Sale");
             Console.WriteLine("Horse Registration Management");
 
@@ -114,6 +116,7 @@ namespace HorseAuction
                             Console.WriteLine($"Horse registered successfully with HorseID: {horse.HorseId}");
                             Console.WriteLine($"Horse Name: {horse.RegisteredName}");
                             Console.WriteLine($"Horse Age: {horse.Age}");
+                            Console.WriteLine($"Horse Sex: {horse.Sex}");
                             Console.WriteLine($"Horse Color: {horse.Color}");
                             Console.WriteLine($"Horse Performance Type: {horse.PerformanceType}");
                             Console.WriteLine($"Horse Description: {horse.Description}");
@@ -156,10 +159,11 @@ namespace HorseAuction
                 Console.WriteLine("Select the property to edit:");
                 Console.WriteLine("1. Horse Registered Name");
                 Console.WriteLine("2. Horse Age");
-                Console.WriteLine("3. Horse Color");
-                Console.WriteLine("4. Horse Description");
-                Console.WriteLine("5. Horse Performance Type");
-                Console.WriteLine("6. Cancel");
+                Console.WriteLine("3. Horse Sex");
+                Console.WriteLine("4. Horse Color");
+                Console.WriteLine("5. Horse Description");
+                Console.WriteLine("6. Horse Performance Type");
+                Console.WriteLine("7. Cancel");
 
                 Console.Write("Enter your choice: ");
                 int choice;
@@ -179,18 +183,22 @@ namespace HorseAuction
                             }
                             break;
                         case 3:
+                            Console.WriteLine("Edit Horse Sex: ");
+                            horse.Sex = Console.ReadLine();
+                            break;
+                        case 4:
                             Console.Write("Enter new Horse Color: ");
                             horse.Color = Console.ReadLine();
                             break;
-                        case 4:
+                        case 5:
                             Console.Write("Enter new Horse Description: ");
                             horse.Description = Console.ReadLine();
                             break;
-                        case 5:
+                        case 6:
                             Console.Write("Enter new Horse Performance Type: ");
                             horse.PerformanceType = Console.ReadLine();
                             break;
-                        case 6:
+                        case 7:
                             Console.WriteLine("Edit Canceled.");
                             return;
                         default:
@@ -292,6 +300,7 @@ namespace HorseAuction
                 HorseId = Guid.NewGuid(),
                 RegisteredName = horseInput.RegisteredName,
                 Age = horseInput.Age,
+                Sex = horseInput.Sex,
                 Color = horseInput.Color,
                 Description = horseInput.Description,
                 PerformanceType = horseInput.PerformanceType,
@@ -300,29 +309,59 @@ namespace HorseAuction
         }
         private HorseInputModel GetHorseInput(string registeredName)
         {
-            Console.Write("Enter Horse Age: ");
-            if (!int.TryParse(Console.ReadLine(), out int age))
+            HorseInputModel horseInput = null;
+
+            bool isValidInput = false;
+
+            do
             {
-                Console.WriteLine("Invalid input for Horse Age. Please enter a valid number.");
-                return null;
-            }
-            Console.Write("Enter Horse Color: ");
-            string color = Console.ReadLine();
+                Console.Write("Enter Horse Age: ");
+                if (!int.TryParse(Console.ReadLine(), out int age))
+                {
+                    Console.WriteLine("Invalid input for Horse Age. Please enter a valid number.");
+                    continue; 
+                }
+                Console.Write("Enter Horse Sex:");
+                string sex = Console.ReadLine();
 
-            Console.Write("Enter Horse Description: ");
-            string description = Console.ReadLine();
+                Console.Write("Enter Horse Color: ");
+                string color = Console.ReadLine();
 
-            Console.Write("Enter Horse Performance Type: ");
-            string performanceType = Console.ReadLine();
+                Console.Write("Enter Horse Description: ");
+                string description = Console.ReadLine();
 
-            return new HorseInputModel
-            {
-                RegisteredName = registeredName,
-                Age = age,
-                Color = color,
-                Description = description,
-                PerformanceType = performanceType
-            };
+                horseInput = new HorseInputModel
+                {
+                    RegisteredName = registeredName,
+                    Age = age,
+                    Sex = sex,
+                    Color = color,
+                    Description = description,
+                };
+
+                bool invalidPerformanceType;
+
+                do
+                {
+
+                    Console.WriteLine("Performance Type must entered as WesternPleasure, HunterUnderSaddle or Reining to be valid");
+                    Console.WriteLine("Enter Horse Performance Type: ");
+
+                    horseInput.PerformanceType = Console.ReadLine();
+
+                    // Validate the performance type 
+                    invalidPerformanceType = !Enum.TryParse<HorsePerformanceType>(horseInput.PerformanceType, true, out _);
+
+                    if (invalidPerformanceType)
+                    {
+                        Console.WriteLine("Invalid performance type. Please enter a valid performance type.");
+                    }
+                } while (invalidPerformanceType);
+                
+                isValidInput = true;
+
+            }while (!isValidInput);
+            return horseInput;
         }
     }
 }

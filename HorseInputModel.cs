@@ -27,6 +27,13 @@ namespace HorseAuction
         [Range(1, 30, ErrorMessage = "Age must be between 1 and 30")]
         public int Age { get; set; }
 
+        public string Sex 
+        {
+            get => sex;
+            set => sex = CapitalizeEachWord(value);
+        }
+        private string sex = string.Empty;
+
         public string Color
         {
             get => color;
@@ -46,6 +53,7 @@ namespace HorseAuction
 
         [EnumDataType(typeof(HorsePerformanceType), ErrorMessage = "Invalid Performance Type")]
         public string PerformanceType { get; set; }
+        private string performanceType = string.Empty;
 
         private string CapitalizeEachWord(string input)
         {
