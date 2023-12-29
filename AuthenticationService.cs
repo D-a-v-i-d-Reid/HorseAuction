@@ -20,7 +20,8 @@ namespace HorseAuction
 
             do
             {
-                Console.Write("Enter your UserName: ");
+                Console.Clear();
+                Console.Write("Enter your UserName for Validation: ");
                 string username = Console.ReadLine().Trim();
 
                 authenticatedUser = GetUserByUsername(username);

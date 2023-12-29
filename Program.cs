@@ -53,7 +53,7 @@ namespace HorseAuction
 
             Console.WriteLine("Select an option:");
             Console.WriteLine("1. Create a new account");
-            Console.WriteLine("2. Register a horse for the auction");
+            Console.WriteLine("2. Register and Edit horse for the auction");
             Console.WriteLine("3. Enter the auction house");
             Console.WriteLine("4. View previous transactions");
 
@@ -64,8 +64,9 @@ namespace HorseAuction
             {
                 case "1":
                     // User Registration
+                    Console.Clear();
                     userRegistrationService.RegisterUser();
-                    break;
+                    return;
 
                 case "2":
                     //Horse Registration

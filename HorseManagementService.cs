@@ -29,16 +29,17 @@ namespace HorseAuction
         public void RunHorseManagementMenu()
         {
             Console.Clear();
-            Console.WriteLine("Lazy R Quarter Horse Sale");
-            Console.WriteLine("Horse Registration Management");
+            Console.WriteLine("Lazy R Quarter Horse Auction");
+            Console.WriteLine("Horse Registration Menu");
+            Console.WriteLine();
 
             bool continueManagement = true;
 
             while (continueManagement)
             {
-                Console.WriteLine("1. Enter a Horse in Sale");
-                Console.WriteLine("2. Edit a Horse in Sale");
-                Console.WriteLine("3. Delete a Horse from Sale");
+                Console.WriteLine("1. Enter a Horse in Auction");
+                Console.WriteLine("2. Edit a Horse in Auction");
+                Console.WriteLine("3. Delete a Horse from Auction");
                 Console.WriteLine("4. Exit");
 
                 Console.Write("Enter your choice: ");
@@ -56,7 +57,7 @@ namespace HorseAuction
                             DeleteHorseFromSale();
                             break;
                         case 4:
-                            Console.WriteLine("Exiting Horse Registration Management. Goodbye!");
+                            Console.WriteLine("Exiting Horse Registration Menu. Goodbye!");
                             continueManagement = false;
                             break;
                         default:

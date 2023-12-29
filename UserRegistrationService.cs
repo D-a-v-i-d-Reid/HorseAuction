@@ -21,19 +21,28 @@ namespace HorseAuction
         {
             User user = null;
 
+            Console.WriteLine("A unique User Name must be created. It must be at least 3 letters and cannot contain any white space between words."); 
+            Console.WriteLine();
+            Console.WriteLine("The User Name is permanent and can not be changed. It will be needed to access all areas of the Auction House.");
+
             do
             {
-                Console.Write("Enter UserName: ");
+                Console.WriteLine();
+                Console.Write("Create a UserName: ");
                 var userName = Console.ReadLine();
 
                 //Check if the username is already in the database
                 if (UserNameIsPersisted(userName) || UserNameIsTakenInSession(userName))
                 {
-                    LogWarningAndConsole("UserName is already taken. Please choose a differnt username.");
+                    LogWarningAndConsole("User Name is already taken. Please choose a different User Name.");
                 }
                 else if (userName.Length < 3)
                 {
-                    LogWarningAndConsole("UserName must be at least 3 characters long. Please enter a valid username.");
+                    LogWarningAndConsole("User Name must be at least 3 characters long. Please enter a valid User Name.");
+                }
+                else if (ContainsWhiteSpace(userName))
+                {
+                    LogWarningAndConsole("User Name cannot contain whitespace between word. Please enter a valid User Name");
                 }
                 else
                 {
@@ -51,6 +60,7 @@ namespace HorseAuction
                             dbContext.Users.Add(user);
                             dbContext.SaveChanges();
 
+                            Console.WriteLine();
                             LogInfoAndConsole($"User registered successfully with UserID: {user.UserId}");
                             LogInfoAndConsole($"Username: {user.UserName}");
                             LogInfoAndConsole($"Name: {user.FullName}");
@@ -91,40 +101,55 @@ namespace HorseAuction
         }
         private bool UserNameIsPersisted(string userName)
         {
-            return dbContext.Users.Any(u => u.UserName.ToLower() == userName.ToLower());
+            string trimmedUserName = userName.Trim();
+            return dbContext.Users.Any(u => u.UserName.Trim().ToLower() == trimmedUserName.ToLower());
         }
 
 
         private bool UserNameIsTakenInSession(string username)
         {
-            return dbContext.ChangeTracker.Entries<User>().Any(e => e.Entity.UserName.ToLower() == username.ToLower());
+            string trimmedUsername = username.Trim();
+
+            return dbContext.ChangeTracker.Entries<User>().Any(e => e.Entity.UserName.Trim().Equals(trimmedUsername, StringComparison.OrdinalIgnoreCase)); 
+        }
+
+        private bool ContainsWhiteSpace(string input)
+        {
+            return input.Any(char.IsWhiteSpace);
         }
 
         private UserInputModel GetUserInput(string userName)
         {
+            Console.WriteLine();
             Console.Write("Enter FirstName: ");
             var firstName = Console.ReadLine();
 
+            Console.WriteLine();
             Console.Write("Enter LastName: ");
             var lastName = Console.ReadLine();
 
+            Console.WriteLine();
             Console.Write("Enter StreetAddress: ");
             var streetAddress = Console.ReadLine();
 
+            Console.WriteLine();
             Console.Write("Enter City: ");
             var city = Console.ReadLine();
 
+            Console.WriteLine();
             Console.Write("Enter State: ");
             var state = Console.ReadLine();
 
+            Console.WriteLine();
             Console.Write("Enter PostalCode: ");
             var postalCode = Console.ReadLine();
 
+            Console.WriteLine();
             Console.Write("Enter CellPhone: ");
             var cellPhone = Console.ReadLine();
             string formattedPhoneNumber = FormatPhoneNumberForDisplay(cellPhone);
 
-
+            Console.WriteLine();
             Console.Write("Enter UserEmail: ");
             var userEmail = Console.ReadLine();
 
