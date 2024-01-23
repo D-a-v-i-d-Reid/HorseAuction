@@ -2,19 +2,26 @@
 using System;
 using System.Collections.Generic;
 
-public class Horse
+namespace HorseAuction
 {
-    public Guid HorseId { get; set; } = Guid.NewGuid();
-    public string RegisteredName { get; set; } = string.Empty;
-    public int Age {  get; set; }
-    public string Sex { get; set; } = string.Empty;
-    public string Color { get; set; } = string.Empty;
-    public string Description { get; set; } = string.Empty;
-    public string PerformanceType { get; set; } = string.Empty;
-    public string Seller {  get; set; } = string.Empty;
-    public Horse() 
+    public class Horse
     {
-     HorseId = Guid.NewGuid();
+        public Guid HorseId { get; set; } = Guid.NewGuid();
+        public string RegisteredName { get; set; } = string.Empty;
+        public int Age { get; set; }
+        public string Sex { get; set; } = string.Empty;
+        public string Color { get; set; } = string.Empty;
+        public string Description { get; set; } = string.Empty;
+        public string PerformanceType { get; set; } = string.Empty;
+        public string SellerUserName { get; set; } = string.Empty;
+        
+        public Guid UserId { get; set; }
+
+        public User User { get; set; }
+
+        public List<Bid> Bids { get; set; }
+       // public User Owner {  get; set; }
+        //public Guid OwnerId { get; set; }
+        //public List<Auction> Auctions { get; set; }
     }
-   // public List<AuctionHouse> AuctionHouses { get; set; }
 }

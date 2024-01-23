@@ -5,25 +5,25 @@
 namespace HorseAuction.Migrations
 {
     /// <inheritdoc />
-    public partial class AddSellerToHorse : Migration
+    public partial class RemoveSellerUser : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.AddColumn<string>(
-                name: "Seller",
-                table: "Horses",
-                type: "TEXT",
-                nullable: false,
-                defaultValue: "");
+            migrationBuilder.DropColumn(
+                name: "SellerUser",
+                table: "Users");
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropColumn(
-                name: "Seller",
-                table: "Horses");
+            migrationBuilder.AddColumn<string>(
+                name: "SellerUser",
+                table: "Users",
+                type: "TEXT",
+                nullable: false,
+                defaultValue: "");
         }
     }
 }

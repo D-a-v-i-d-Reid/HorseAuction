@@ -20,9 +20,10 @@ namespace HorseAuction
         public string CellPhone { get; set; }
         public string UserEmail { get; set; }
 
-        // Navigation properties to represent the auctions where the user is a seller or buyer
-     //   public List<AuctionHouse> SellerAuctions { get; set; }
-     //   public List<AuctionHouse> BuyerAuctions { get; set; }
-     //   public List<AuctionHouse> AuctionHouses { get; set; }
+        //public string SellerUser { get; set; }
+
+        public List<Horse> Horses { get; set; }
+        public List<Bid> Bids { get; set; }
+
     }
 }

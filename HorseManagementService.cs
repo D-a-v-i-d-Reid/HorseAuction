@@ -57,6 +57,7 @@ namespace HorseAuction
                             DeleteHorseFromSale();
                             break;
                         case 4:
+                            Console.WriteLine();
                             Console.WriteLine("Exiting Horse Registration Menu. Goodbye!");
                             continueManagement = false;
                             break;
@@ -87,7 +88,8 @@ namespace HorseAuction
 
             do
             {
-                Console.WriteLine("Enter Horse Name: ");
+                Console.WriteLine();
+                Console.WriteLine("Enter Horse Registered Name: ");
                 var horseName = Console.ReadLine();
 
                 // Check if the horse name is already in the database
@@ -114,6 +116,7 @@ namespace HorseAuction
                             dbContext.Horses.Add(horse);
                             dbContext.SaveChanges();
 
+                            Console.WriteLine();
                             Console.WriteLine($"Horse registered successfully with HorseID: {horse.HorseId}");
                             Console.WriteLine($"Horse Name: {horse.RegisteredName}");
                             Console.WriteLine($"Horse Age: {horse.Age}");
@@ -121,6 +124,10 @@ namespace HorseAuction
                             Console.WriteLine($"Horse Color: {horse.Color}");
                             Console.WriteLine($"Horse Performance Type: {horse.PerformanceType}");
                             Console.WriteLine($"Horse Description: {horse.Description}");
+                            Console.WriteLine();
+                            Console.WriteLine("Press Enter to continue.");
+                            Console.ReadLine();
+                            Console.Clear();
                         }
                         catch (DbUpdateException ex)
                         {
@@ -173,11 +180,11 @@ namespace HorseAuction
                     switch (choice)
                     {
                         case 1:
-                            Console.Write("Enter new Horse Registered Name; ");
+                            Console.Write("Edit Horse Registered Name; ");
                             horse.RegisteredName = Console.ReadLine();
                             break;
                         case 2:
-                            Console.Write("Enter new Horse Age: ");
+                            Console.Write("Edit Horse Age: ");
                             if (int.TryParse(Console.ReadLine(), out int age))
                             {
                                 horse.Age = age;
@@ -188,15 +195,15 @@ namespace HorseAuction
                             horse.Sex = Console.ReadLine();
                             break;
                         case 4:
-                            Console.Write("Enter new Horse Color: ");
+                            Console.Write("Edit Horse Color: ");
                             horse.Color = Console.ReadLine();
                             break;
                         case 5:
-                            Console.Write("Enter new Horse Description: ");
+                            Console.Write("Edit Horse Description: ");
                             horse.Description = Console.ReadLine();
                             break;
                         case 6:
-                            Console.Write("Enter new Horse Performance Type: ");
+                            Console.Write("Edit Horse Performance Type: ");
                             horse.PerformanceType = Console.ReadLine();
                             break;
                         case 7:
@@ -305,7 +312,7 @@ namespace HorseAuction
                 Color = horseInput.Color,
                 Description = horseInput.Description,
                 PerformanceType = horseInput.PerformanceType,
-                Seller = sellerUsername
+                SellerUserName = sellerUsername
             };
         }
         private HorseInputModel GetHorseInput(string registeredName)
@@ -316,18 +323,23 @@ namespace HorseAuction
 
             do
             {
+                Console.WriteLine();
                 Console.Write("Enter Horse Age: ");
                 if (!int.TryParse(Console.ReadLine(), out int age))
                 {
                     Console.WriteLine("Invalid input for Horse Age. Please enter a valid number.");
                     continue; 
                 }
+
+                Console.WriteLine();
                 Console.Write("Enter Horse Sex:");
                 string sex = Console.ReadLine();
 
+                Console.WriteLine();
                 Console.Write("Enter Horse Color: ");
                 string color = Console.ReadLine();
 
+                Console.WriteLine();
                 Console.Write("Enter Horse Description: ");
                 string description = Console.ReadLine();
 
@@ -344,7 +356,7 @@ namespace HorseAuction
 
                 do
                 {
-
+                    Console.WriteLine();
                     Console.WriteLine("Performance Type must entered as WesternPleasure, HunterUnderSaddle or Reining to be valid");
                     Console.WriteLine("Enter Horse Performance Type: ");
 

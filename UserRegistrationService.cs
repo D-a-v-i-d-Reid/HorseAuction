@@ -23,7 +23,7 @@ namespace HorseAuction
 
             Console.WriteLine("A unique User Name must be created. It must be at least 3 letters and cannot contain any white space between words."); 
             Console.WriteLine();
-            Console.WriteLine("The User Name is permanent and can not be changed. It will be needed to access all areas of the Auction House.");
+            Console.WriteLine("The User Name is permanent and can not be changed. Your User Name will be needed to access all areas of the Auction House.");
 
             do
             {
@@ -64,7 +64,7 @@ namespace HorseAuction
                             LogInfoAndConsole($"User registered successfully with UserID: {user.UserId}");
                             LogInfoAndConsole($"Username: {user.UserName}");
                             LogInfoAndConsole($"Name: {user.FullName}");
-                            LogInfoAndConsole($"Address: {user.StreetAddress}, {user.City}, {user.State} {user.PostalCode}");
+                            LogInfoAndConsole($"Address: {user.StreetAddress} {user.City}, {user.State} {user.PostalCode}");
                             LogInfoAndConsole($"Phone: {user.CellPhone}");
                             LogInfoAndConsole($"Email: {user.UserEmail}");
                         }

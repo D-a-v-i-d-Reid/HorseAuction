@@ -8,7 +8,7 @@ namespace HorseAuction
     public class Program
     {
         public static void Main()
-        { 
+        {
             //Specify configuration values
             var connectionString = "Data Source=AuctionData.db";
             var logFilePath = "AuctionLogFile.txt";
@@ -48,60 +48,69 @@ namespace HorseAuction
 
             Console.WriteLine("\n\t\tWelcome to the Lazy R Ranch Quarter Horse Auction\n");
             Console.WriteLine("First-time users must register with the Auction House to proceed.");
-            Console.WriteLine("Select a unique username; it is required to access all functions in the Auction House.");
+            Console.WriteLine("Create a unique username; Your User Name is required to access all functions in the Auction House.");
             Console.WriteLine("Once registered, you can enter a horse for sale, place a bid on a horse currently on the Auction Block, or view a history of previous transactions.\n");
+            Console.WriteLine();
+            Console.WriteLine("Press Enter to Proceed");
+            Console.ReadLine();
+            Console.Clear();
+            bool continueProgram = true;
 
-            Console.WriteLine("Select an option:");
-            Console.WriteLine("1. Create a new account");
-            Console.WriteLine("2. Register and Edit horse for the auction");
-            Console.WriteLine("3. Enter the auction house");
-            Console.WriteLine("4. View previous transactions");
-
-            Console.Write("Enter your choice (1-4): ");
-            string userChoice = Console.ReadLine();
-
-            switch (userChoice)
+            while (continueProgram)
             {
-                case "1":
-                    // User Registration
+
+                Console.WriteLine("\n\t\tWelcome to the Lazy R Ranch Quarter Horse Auction\n");
+                Console.WriteLine("Select an option:");
+                Console.WriteLine("1. Create a new account");
+                Console.WriteLine("2. Register or Edit horse for the auction");
+                Console.WriteLine("3. Enter the auction house");
+                Console.WriteLine("4. View previous transactions");
+                Console.WriteLine("0. Exit Program");
+
+                Console.Write("Enter your choice (0-4): ");
+                string userChoice = Console.ReadLine();
+
+                switch (userChoice)
+                {
+                    case "1":
+                        // User Registration
+                        Console.Clear();
+                        userRegistrationService.RegisterUser();
+                        return;
+
+                    case "2":
+                        //Horse Registration
+                        horseManagementService.RunHorseManagementMenu();
+                        break;
+
+                    case "3":
+                        // Add logic for entering the auction house
+                        break;
+
+                    case "4":
+                        // Add Method for transction history
+                        break;
+
+                    case "0":
+                        // Exit the program
+                        Console.WriteLine();
+                        Console.WriteLine("Thank you for using the Lazy R Ranch Quarter Horse Auction. Goodbye!");
+                        continueProgram = false;
+                        break;
+
+                    default:
+                        Console.WriteLine("Invalid Choice. Please enter a valid option (0-4).");
+                        break;
+                }
+                if (continueProgram)
+                {
+                    Console.WriteLine("Press Enter to return to the main menu");
+                    Console.ReadLine();
                     Console.Clear();
-                    userRegistrationService.RegisterUser();
-                    return;
-
-                case "2":
-                    //Horse Registration
-                    horseManagementService.RunHorseManagementMenu();
-                    break;
-
-
-                    //    case "3":
-
-
-                    //            var auctionLogic = new AuctionHouseLogic(dbContext);
-                    //            auctionLogic.CreateAuction(sellerUser, buyerUser);
-
-                    //        break;
-
-                    //    case "4":
-                    //        //Add Method for transction history
-                    //        break;
-
-                    //    default:
-                    //        Console.WriteLine("Invalid Choice. Please enter a valid option (1-4).");
-                    //        break;
-                    //}
-                    Console.WriteLine("Thank you for using the Lazy R Ranch Quarter Horse Auction. Goodbye!");
-
-
-
-
-
-
+                }
             }
-
         }
     }
-
 }
 
 

@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 
-public class Bidder
+namespace HorseAuction
 {
-    public int BidderId { get; set; }
-    public string BidderName { get; set; } = string.Empty;
+    public class Bidder
+    {
+        public int BidderId { get; set; }
+        public string BidderName { get; set; } = string.Empty;
 
-    public List<Bid> Bids { get; set; } = new List<Bid>();
+        public List<Bid> Bids { get; set; } = new List<Bid>();
+    }
 }

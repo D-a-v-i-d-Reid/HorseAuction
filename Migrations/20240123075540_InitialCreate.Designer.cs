@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HorseAuction.Migrations
 {
     [DbContext(typeof(AuctionDbContext))]
-    [Migration("20231222075818_InitialCreate")]
+    [Migration("20240123075540_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -20,7 +20,46 @@ namespace HorseAuction.Migrations
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "7.0.14");
 
-            modelBuilder.Entity("Horse", b =>
+            modelBuilder.Entity("HorseAuction.Bid", b =>
+                {
+                    b.Property<Guid>("BidId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("TEXT");
+
+                    b.Property<decimal>("Amount")
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("BidTime")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("BuyerUserName")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<Guid>("HorseId")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("RegisteredName")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("SellerUserName")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("BidId");
+
+                    b.HasIndex("HorseId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Bids");
+                });
+
+            modelBuilder.Entity("HorseAuction.Horse", b =>
                 {
                     b.Property<Guid>("HorseId")
                         .ValueGeneratedOnAdd()
@@ -45,7 +84,20 @@ namespace HorseAuction.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("SellerUserName")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Sex")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("TEXT");
+
                     b.HasKey("HorseId");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Horses");
                 });
@@ -80,6 +132,10 @@ namespace HorseAuction.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("SellerUser")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("State")
                         .IsRequired()
                         .HasColumnType("TEXT");
@@ -99,6 +155,48 @@ namespace HorseAuction.Migrations
                     b.HasKey("UserId");
 
                     b.ToTable("Users");
+                });
+
+            modelBuilder.Entity("HorseAuction.Bid", b =>
+                {
+                    b.HasOne("HorseAuction.Horse", "Horse")
+                        .WithMany("Bids")
+                        .HasForeignKey("HorseId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("HorseAuction.User", "Buyer")
+                        .WithMany("Bids")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Buyer");
+
+                    b.Navigation("Horse");
+                });
+
+            modelBuilder.Entity("HorseAuction.Horse", b =>
+                {
+                    b.HasOne("HorseAuction.User", "User")
+                        .WithMany("Horses")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("HorseAuction.Horse", b =>
+                {
+                    b.Navigation("Bids");
+                });
+
+            modelBuilder.Entity("HorseAuction.User", b =>
+                {
+                    b.Navigation("Bids");
+
+                    b.Navigation("Horses");
                 });
 #pragma warning restore 612, 618
         }
